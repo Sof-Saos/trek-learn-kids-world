@@ -1,12 +1,69 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Book, Music, Headphones, Search } from 'lucide-react';
+import Header from '@/components/Header';
+import SubjectCard from '@/components/SubjectCard';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-white to-soft-purple">
+      <Header />
+      
+      <main className="kid-container">
+        <div className="text-center mb-12 mt-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to LearnTrek!</h1>
+          <p className="text-xl text-gray-700">Let's explore and learn together!</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <SubjectCard 
+            title="Math" 
+            description="Fun with numbers and shapes!" 
+            icon={<Search className="w-8 h-8 text-white" />} 
+            color="#9b87f5" 
+            bgColor="#E5DEFF" 
+            to="/math"
+          />
+          
+          <SubjectCard 
+            title="Spanish" 
+            description="¡Aprendamos español juntos!" 
+            icon={<Book className="w-8 h-8 text-white" />} 
+            color="#F97316" 
+            bgColor="#FEC6A1" 
+            to="/spanish"
+          />
+          
+          <SubjectCard 
+            title="English" 
+            description="Words, songs, and stories!" 
+            icon={<Music className="w-8 h-8 text-white" />} 
+            color="#33C3F0" 
+            bgColor="#D3E4FD" 
+            to="/english"
+          />
+        </div>
+
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-bold mb-6">Start Learning Now!</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="kid-button bg-kid-purple">
+              Math Quiz
+            </button>
+            <button className="kid-button bg-kid-orange">
+              Spanish Vocabulary
+            </button>
+            <button className="kid-button bg-kid-blue">
+              English Songs
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer className="mt-16 py-6 bg-white shadow-inner">
+        <div className="kid-container text-center">
+          <p className="text-gray-600">© 2025 LearnTrek - Learning made fun!</p>
+        </div>
+      </footer>
     </div>
   );
 };
