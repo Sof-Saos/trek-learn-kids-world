@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
 import { Calculator, CircleEqual, CircleDot } from 'lucide-react';
@@ -16,7 +17,7 @@ const mathNodes: LessonNode[] = [
     id: 'angles-2',
     title: 'Angles - Intermediate',
     description: 'Understand acute, obtuse, and right angles',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/angles/2',
     level: 2
   },
@@ -24,7 +25,7 @@ const mathNodes: LessonNode[] = [
     id: 'angles-3',
     title: 'Angles - Advanced',
     description: 'Work with complementary and supplementary angles',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/angles/3',
     level: 3
   },
@@ -34,7 +35,7 @@ const mathNodes: LessonNode[] = [
     id: 'fractions-1',
     title: 'Fractions - Basic',
     description: 'Understand what fractions represent',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/fractions/1',
     level: 1
   },
@@ -42,7 +43,7 @@ const mathNodes: LessonNode[] = [
     id: 'fractions-2',
     title: 'Fractions - Intermediate',
     description: 'Compare fractions with different denominators',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/fractions/2',
     level: 2
   },
@@ -50,7 +51,7 @@ const mathNodes: LessonNode[] = [
     id: 'fractions-3',
     title: 'Fractions - Advanced',
     description: 'Add and subtract fractions',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/fractions/3',
     level: 3
   },
@@ -60,7 +61,7 @@ const mathNodes: LessonNode[] = [
     id: 'mult-div-1',
     title: 'Multiplication & Division - Basic',
     description: 'Learn basic multiplication and division facts',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/mult-div/1',
     level: 1
   },
@@ -68,7 +69,7 @@ const mathNodes: LessonNode[] = [
     id: 'mult-div-2',
     title: 'Multiplication & Division - Intermediate',
     description: 'Work with larger numbers and remainders',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/mult-div/2',
     level: 2
   },
@@ -76,7 +77,7 @@ const mathNodes: LessonNode[] = [
     id: 'mult-div-3',
     title: 'Multiplication & Division - Advanced',
     description: 'Solve multi-step problems with multiplication and division',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/math/mult-div/3',
     level: 3
   },
@@ -88,6 +89,13 @@ const MathPath = () => {
       <Header />
       
       <main className="kid-container pt-8">
+        {/* Added recommendation banner */}
+        <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
+          <p className="text-amber-700 font-medium">
+            Se recomienda resolver estos cuestionarios después de leer el tema correspondiente en la cartilla y explorar los objetos secretos en realidad aumentada.
+          </p>
+        </div>
+      
         <PathView 
           nodes={mathNodes} 
           title="Math Learning Path" 

@@ -20,7 +20,7 @@ const SpanishPath = () => {
       id: 'tuesday',
       title: 'Martes con Timmy',
       description: 'Timmy hace nuevos amigos',
-      status: 'locked',
+      status: 'available', // Changed from 'locked' to 'available'
       to: '/espanol/martes',
     },
     
@@ -29,7 +29,7 @@ const SpanishPath = () => {
       id: 'wednesday',
       title: 'Miércoles con Timmy',
       description: 'Timmy enfrenta un reto',
-      status: 'locked',
+      status: 'available', // Changed from 'locked' to 'available'
       to: '/espanol/miercoles',
     },
     
@@ -38,7 +38,7 @@ const SpanishPath = () => {
       id: 'thursday',
       title: 'Jueves con Timmy',
       description: 'Timmy aprende algo nuevo',
-      status: 'locked',
+      status: 'available', // Changed from 'locked' to 'available'
       to: '/espanol/jueves',
     },
     
@@ -47,7 +47,7 @@ const SpanishPath = () => {
       id: 'friday',
       title: 'Viernes con Timmy',
       description: 'Timmy celebra con amigos',
-      status: 'locked',
+      status: 'available', // Changed from 'locked' to 'available'
       to: '/espanol/viernes',
     },
   ]);
@@ -85,6 +85,13 @@ const SpanishPath = () => {
       <Header />
       
       <main className="kid-container pt-8">
+        {/* Added recommendation banner */}
+        <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
+          <p className="text-amber-700 font-medium">
+            Antes de responder el cuestionario, asegúrate de haber leído el cuento del día en la cartilla análoga.
+          </p>
+        </div>
+      
         <PathView 
           nodes={nodes} 
           title="Ruta de Aprendizaje de Español" 

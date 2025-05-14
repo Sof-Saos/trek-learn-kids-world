@@ -18,7 +18,7 @@ const englishNodes: LessonNode[] = [
     id: 'house',
     title: 'Parts of the House',
     description: 'Discover words for different rooms and objects in a house',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/english/house',
   },
   
@@ -27,7 +27,7 @@ const englishNodes: LessonNode[] = [
     id: 'body',
     title: 'Parts of the Body',
     description: 'Learn to name different parts of the body',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/english/body',
   },
   
@@ -36,7 +36,7 @@ const englishNodes: LessonNode[] = [
     id: 'emotions',
     title: 'Emotions',
     description: 'Understand and express different feelings',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/english/emotions',
   },
   
@@ -45,7 +45,7 @@ const englishNodes: LessonNode[] = [
     id: 'animals',
     title: 'Animals',
     description: 'Learn about different animals and their habitats',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/english/animals',
   },
   
@@ -54,7 +54,7 @@ const englishNodes: LessonNode[] = [
     id: 'school',
     title: 'School',
     description: 'Vocabulary related to classroom and school activities',
-    status: 'locked',
+    status: 'available', // Changed from 'locked' to 'available'
     to: '/english/school',
   },
 ];
@@ -65,6 +65,13 @@ const EnglishPath = () => {
       <Header />
       
       <main className="kid-container pt-8">
+        {/* Added recommendation banner */}
+        <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
+          <p className="text-amber-700 font-medium">
+            Te recomendamos resolver primero el rompecabezas con cubos y escanear el contenido oculto en realidad aumentada antes de comenzar el cuestionario.
+          </p>
+        </div>
+        
         <PathView 
           nodes={englishNodes} 
           title="English Learning Path" 

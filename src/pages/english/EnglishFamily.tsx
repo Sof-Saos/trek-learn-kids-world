@@ -119,6 +119,13 @@ const EnglishFamily = () => {
           <p className="text-gray-700">Aprende sobre los miembros de la familia y sus relaciones</p>
         </div>
 
+        {/* Added recommendation banner */}
+        <div className="mb-6 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md max-w-4xl mx-auto">
+          <p className="text-amber-700 font-medium">
+            Te recomendamos resolver primero el rompecabezas con cubos y escanear el contenido oculto en realidad aumentada antes de comenzar el cuestionario.
+          </p>
+        </div>
+
         <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="listening" className="text-lg">
@@ -470,4 +477,3 @@ const EnglishFamily = () => {
 };
 
 export default EnglishFamily;
-
