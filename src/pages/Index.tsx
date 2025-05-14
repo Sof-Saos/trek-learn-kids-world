@@ -2,6 +2,7 @@
 import { Book, Music, Headphones, Search } from 'lucide-react';
 import Header from '@/components/Header';
 import SubjectCard from '@/components/SubjectCard';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -46,15 +47,21 @@ const Index = () => {
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold mb-6">Start Learning Now!</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="kid-button bg-kid-purple">
-              Math Quiz
-            </button>
-            <button className="kid-button bg-kid-orange">
-              Spanish Vocabulary
-            </button>
-            <button className="kid-button bg-kid-blue">
-              English Songs
-            </button>
+            <Link to="/math">
+              <button className="kid-button bg-kid-purple">
+                Math Quiz
+              </button>
+            </Link>
+            <Link to="/spanish">
+              <button className="kid-button bg-kid-orange">
+                Spanish Vocabulary
+              </button>
+            </Link>
+            <Link to="/english">
+              <button className="kid-button bg-kid-blue">
+                English Songs
+              </button>
+            </Link>
           </div>
         </div>
       </main>
