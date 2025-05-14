@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -35,18 +34,30 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
 
-          {/* Math Routes */}
+          {/* Math Routes - renamed to Spanish */}
+          <Route path="/matematicas" element={<MathPath />} />
+          <Route path="/matematicas/antiguo" element={<Math />} />
+          <Route path="/matematicas/angulos/1" element={<MathAngleLevel1 />} />
+
+          {/* English Routes - renamed to Spanish */}
+          <Route path="/ingles" element={<EnglishPath />} />
+          <Route path="/ingles/antiguo" element={<English />} />
+          <Route path="/ingles/canciones" element={<EnglishSongs />} />
+          <Route path="/ingles/familia" element={<EnglishFamily />} />
+
+          {/* Spanish Routes - renamed to Spanish */}
+          <Route path="/espanol" element={<SpanishPath />} />
+          <Route path="/espanol/antiguo" element={<Spanish />} />
+          <Route path="/espanol/lunes" element={<SpanishMonday />} />
+
+          {/* Keep backward compatibility for now */}
           <Route path="/math" element={<MathPath />} />
           <Route path="/math/old" element={<Math />} />
           <Route path="/math/angles/1" element={<MathAngleLevel1 />} />
-
-          {/* English Routes */}
           <Route path="/english" element={<EnglishPath />} />
           <Route path="/english/old" element={<English />} />
           <Route path="/english/songs" element={<EnglishSongs />} />
           <Route path="/english/family" element={<EnglishFamily />} />
-
-          {/* Spanish Routes */}
           <Route path="/spanish" element={<SpanishPath />} />
           <Route path="/spanish/old" element={<Spanish />} />
           <Route path="/spanish/monday" element={<SpanishMonday />} />

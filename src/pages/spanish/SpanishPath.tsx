@@ -1,65 +1,94 @@
 
+import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
 import { Calendar, Book } from 'lucide-react';
 
-const spanishNodes: LessonNode[] = [
-  // Monday - Day 1
-  {
-    id: 'monday',
-    title: 'Monday with Timmy',
-    description: 'Timmy\'s first day at school',
-    status: 'available',
-    to: '/spanish/monday',
-  },
-  
-  // Tuesday - Day 2
-  {
-    id: 'tuesday',
-    title: 'Tuesday with Timmy',
-    description: 'Timmy makes new friends',
-    status: 'locked',
-    to: '/spanish/tuesday',
-  },
-  
-  // Wednesday - Day 3
-  {
-    id: 'wednesday',
-    title: 'Wednesday with Timmy',
-    description: 'Timmy faces a challenge',
-    status: 'locked',
-    to: '/spanish/wednesday',
-  },
-  
-  // Thursday - Day 4
-  {
-    id: 'thursday',
-    title: 'Thursday with Timmy',
-    description: 'Timmy learns something new',
-    status: 'locked',
-    to: '/spanish/thursday',
-  },
-  
-  // Friday - Day 5
-  {
-    id: 'friday',
-    title: 'Friday with Timmy',
-    description: 'Timmy celebrates with friends',
-    status: 'locked',
-    to: '/spanish/friday',
-  },
-];
-
 const SpanishPath = () => {
+  const [nodes, setNodes] = useState<LessonNode[]>([
+    // Monday - Day 1
+    {
+      id: 'monday',
+      title: 'Lunes con Timmy',
+      description: 'El primer día de Timmy en la escuela',
+      status: 'available',
+      to: '/espanol/lunes',
+    },
+    
+    // Tuesday - Day 2
+    {
+      id: 'tuesday',
+      title: 'Martes con Timmy',
+      description: 'Timmy hace nuevos amigos',
+      status: 'locked',
+      to: '/espanol/martes',
+    },
+    
+    // Wednesday - Day 3
+    {
+      id: 'wednesday',
+      title: 'Miércoles con Timmy',
+      description: 'Timmy enfrenta un reto',
+      status: 'locked',
+      to: '/espanol/miercoles',
+    },
+    
+    // Thursday - Day 4
+    {
+      id: 'thursday',
+      title: 'Jueves con Timmy',
+      description: 'Timmy aprende algo nuevo',
+      status: 'locked',
+      to: '/espanol/jueves',
+    },
+    
+    // Friday - Day 5
+    {
+      id: 'friday',
+      title: 'Viernes con Timmy',
+      description: 'Timmy celebra con amigos',
+      status: 'locked',
+      to: '/espanol/viernes',
+    },
+  ]);
+
+  useEffect(() => {
+    // Check localStorage for unlocked levels
+    const updateNodesStatus = () => {
+      setNodes(prevNodes => {
+        const updatedNodes = [...prevNodes];
+        
+        // Check if Tuesday is unlocked
+        if (localStorage.getItem('spanish_tuesday_unlocked') === 'true') {
+          updatedNodes[1] = { ...updatedNodes[1], status: 'available' };
+        }
+        
+        // Additional checks for other days could be added here
+        
+        return updatedNodes;
+      });
+    };
+    
+    // Update nodes when component mounts
+    updateNodesStatus();
+    
+    // Add event listener for storage changes (in case another tab updates localStorage)
+    window.addEventListener('storage', updateNodesStatus);
+    
+    return () => {
+      window.removeEventListener('storage', updateNodesStatus);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-soft-orange">
       <Header />
       
       <main className="kid-container pt-8">
         <PathView 
-          nodes={spanishNodes} 
-          title="Spanish Learning Path" 
-          subtitle="Follow Timmy through his week and learn Spanish" 
+          nodes={nodes} 
+          title="Ruta de Aprendizaje de Español" 
+          subtitle="Sigue a Timmy durante su semana y aprende español" 
           pathColor="#F97316"
           pathBgColor="#FEC6A1"
         />
@@ -70,24 +99,24 @@ const SpanishPath = () => {
               <Book className="w-8 h-8 text-orange-500" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold">Timmy's Adventures</h3>
-              <p className="text-gray-600">Read Timmy's story in your booklet first</p>
+              <h3 className="text-2xl font-bold">Las Aventuras de Timmy</h3>
+              <p className="text-gray-600">Lee la historia de Timmy en tu folleto primero</p>
             </div>
           </div>
           
           <div className="bg-soft-orange p-5 rounded-xl">
-            <h4 className="font-bold text-lg mb-2 text-center">How it works:</h4>
+            <h4 className="font-bold text-lg mb-2 text-center">Cómo funciona:</h4>
             <ol className="list-decimal list-inside space-y-2 text-gray-700">
-              <li>Read the corresponding day's story in your printed booklet</li>
-              <li>Complete the quiz to test your understanding</li>
-              <li>Unlock the next day's adventure after completing each quiz</li>
+              <li>Lee la historia del día correspondiente en tu folleto impreso</li>
+              <li>Completa el cuestionario para probar tu comprensión</li>
+              <li>Desbloquea la aventura del siguiente día después de completar cada cuestionario</li>
             </ol>
           </div>
           
           <div className="mt-6 text-center">
             <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-1 text-sm">
               <Calendar className="w-4 h-4 mr-2" />
-              <span>Complete one day at a time</span>
+              <span>Completa un día a la vez</span>
             </div>
           </div>
         </div>
