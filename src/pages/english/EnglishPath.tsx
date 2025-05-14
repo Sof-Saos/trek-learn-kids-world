@@ -1,7 +1,7 @@
 
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
-import { Family, House, Body, Music, Book, School } from 'lucide-react';
+import { Users, Home, Smile, Cat, School, BookOpen, HeadphonesIcon, BookIcon } from 'lucide-react';
 
 const englishNodes: LessonNode[] = [
   // Family
@@ -79,7 +79,7 @@ const EnglishPath = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <Headphones className="w-6 h-6 text-white" />
+                <HeadphonesIcon className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-bold">Listening</h4>
               <p className="text-sm mt-1">Listen to native speakers and understand</p>
@@ -87,7 +87,7 @@ const EnglishPath = () => {
             
             <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <Book className="w-6 h-6 text-white" />
+                <BookIcon className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-bold">Reading</h4>
               <p className="text-sm mt-1">Read short stories and answer questions</p>
@@ -95,7 +95,7 @@ const EnglishPath = () => {
             
             <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <Search className="w-6 h-6 text-white" />
+                <BookOpen className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-bold">Vocabulary</h4>
               <p className="text-sm mt-1">Learn new words and their meanings</p>

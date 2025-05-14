@@ -1,7 +1,6 @@
-
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
-import { Calculator, Fraction, Circle } from 'lucide-react';
+import { Calculator, CircleEqual, CircleDot } from 'lucide-react';
 
 const mathNodes: LessonNode[] = [
   // Angles
@@ -101,7 +100,7 @@ const MathPath = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
-                <Circle className="w-8 h-8 text-green-600" />
+                <CircleDot className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="font-bold mb-2">Angles</h3>
               <p className="text-sm">Learn to measure and work with different types of angles</p>
@@ -109,7 +108,7 @@ const MathPath = () => {
             
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
-                <Fraction className="w-8 h-8 text-green-600" />
+                <CircleEqual className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="font-bold mb-2">Fractions</h3>
               <p className="text-sm">Master fractions and how to use them in calculations</p>
