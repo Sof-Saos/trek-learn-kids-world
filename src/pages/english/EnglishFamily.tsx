@@ -4,11 +4,103 @@ import { Link } from 'react-router-dom';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Headphones, Book, Search } from 'lucide-react';
+import { ArrowLeft, Headphones, Book, Search, Check, X } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { toast } from "@/components/ui/use-toast";
 
 const EnglishFamily = () => {
   const [activeTab, setActiveTab] = useState("listening");
+  const [listeningAnswers, setListeningAnswers] = useState({
+    exercise1: null,
+    exercise2: null
+  });
+  const [readingAnswers, setReadingAnswers] = useState({
+    question1: null,
+    question2: null
+  });
+  const [vocabularyAnswers, setVocabularyAnswers] = useState({
+    mother: '',
+    father: '',
+    sister: ''
+  });
+
+  // Answer handling for listening exercises
+  const handleListeningAnswer = (exercise, answer, isCorrect) => {
+    if (isCorrect) {
+      setListeningAnswers(prev => ({ ...prev, [exercise]: answer }));
+      toast({
+        title: "¡Respuesta correcta!",
+        description: "Muy bien hecho.",
+        duration: 2000,
+      });
+    } else {
+      toast({
+        title: "Inténtalo de nuevo",
+        description: "Esa no es la respuesta correcta.",
+        variant: "destructive",
+        duration: 2000,
+      });
+    }
+  };
+
+  // Answer handling for reading exercises
+  const handleReadingAnswer = (question, answer, isCorrect) => {
+    if (isCorrect) {
+      setReadingAnswers(prev => ({ ...prev, [question]: answer }));
+      toast({
+        title: "¡Respuesta correcta!",
+        description: "Muy bien hecho.",
+        duration: 2000,
+      });
+    } else {
+      toast({
+        title: "Inténtalo de nuevo",
+        description: "Esa no es la respuesta correcta.",
+        variant: "destructive",
+        duration: 2000,
+      });
+    }
+  };
+
+  // Answer handling for vocabulary exercise
+  const handleVocabularyAnswer = (word, translation) => {
+    setVocabularyAnswers(prev => ({ ...prev, [word]: translation }));
+    
+    // Check if the translation is correct
+    const correctTranslations = {
+      mother: 'Madre',
+      father: 'Padre',
+      sister: 'Hermana',
+    };
+    
+    if (correctTranslations[word] === translation) {
+      toast({
+        title: "¡Respuesta correcta!",
+        description: "Muy bien hecho.",
+        duration: 2000,
+      });
+    } else {
+      toast({
+        title: "Inténtalo de nuevo",
+        description: "Esa no es la respuesta correcta.",
+        variant: "destructive",
+        duration: 2000,
+      });
+    }
+  };
+
+  const isExerciseCompleted = (exerciseId) => {
+    if (exerciseId === 'listening') {
+      return listeningAnswers.exercise1 !== null && listeningAnswers.exercise2 !== null;
+    } else if (exerciseId === 'reading') {
+      return readingAnswers.question1 !== null && readingAnswers.question2 !== null;
+    } else if (exerciseId === 'vocabulary') {
+      return vocabularyAnswers.mother === 'Madre' && 
+             vocabularyAnswers.father === 'Padre' && 
+             vocabularyAnswers.sister === 'Hermana';
+    }
+    return false;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-soft-blue">
@@ -18,28 +110,28 @@ const EnglishFamily = () => {
         <div className="flex items-center mb-4 mt-4">
           <Link to="/english" className="flex items-center text-gray-600 hover:text-gray-900">
             <ArrowLeft className="mr-2 h-5 w-5" />
-            <span>Back to English Path</span>
+            <span>Volver a la Ruta de Inglés</span>
           </Link>
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Family</h1>
-          <p className="text-gray-700">Learn about family members and relationships</p>
+          <h1 className="text-3xl font-bold mb-2">Familia</h1>
+          <p className="text-gray-700">Aprende sobre los miembros de la familia y sus relaciones</p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="listening" className="text-lg">
               <Headphones className="w-4 h-4 mr-2" />
-              Listening
+              Escuchar
             </TabsTrigger>
             <TabsTrigger value="reading" className="text-lg">
               <Book className="w-4 h-4 mr-2" />
-              Reading
+              Leer
             </TabsTrigger>
             <TabsTrigger value="vocabulary" className="text-lg">
               <Search className="w-4 h-4 mr-2" />
-              Vocabulary
+              Vocabulario
             </TabsTrigger>
           </TabsList>
 
@@ -49,47 +141,105 @@ const EnglishFamily = () => {
               <div className="aspect-video bg-gray-100 rounded-lg mb-8">
                 {/* YouTube video embed placeholder */}
                 <div className="w-full h-full flex items-center justify-center">
-                  <p className="text-gray-500">YouTube video lyrics will be embedded here</p>
+                  <p className="text-gray-500">El video con letra se incorporará aquí</p>
                 </div>
               </div>
               
               <div className="space-y-8">
                 <div className="bg-soft-blue p-5 rounded-xl">
-                  <h3 className="font-bold text-xl mb-4">Listening Exercise 1</h3>
-                  <p className="mb-4">Listen to the song and answer the question:</p>
-                  <p className="font-medium mb-3">Who is the oldest person in the family?</p>
+                  <h3 className="font-bold text-xl mb-4">Ejercicio de Escucha 1</h3>
+                  <p className="mb-4">Escucha la canción y responde la pregunta:</p>
+                  <p className="font-medium mb-3">¿Quién es la persona más mayor de la familia?</p>
                   
                   <div className="grid grid-cols-1 gap-3 mt-4">
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      Grandmother
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise1 === 'grandmother' 
+                          ? 'bg-green-100 hover:bg-green-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise1', 'grandmother', true)}
+                    >
+                      <span>Abuela</span>
+                      {listeningAnswers.exercise1 === 'grandmother' && <Check className="w-5 h-5 text-green-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      Father
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise1 === 'father' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise1', 'father', false)}
+                    >
+                      <span>Padre</span>
+                      {listeningAnswers.exercise1 === 'father' && <X className="w-5 h-5 text-red-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      Grandfather
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise1 === 'grandfather' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise1', 'grandfather', false)}
+                    >
+                      <span>Abuelo</span>
+                      {listeningAnswers.exercise1 === 'grandfather' && <X className="w-5 h-5 text-red-600" />}
                     </button>
                   </div>
                 </div>
                 
                 <div className="bg-soft-blue p-5 rounded-xl">
-                  <h3 className="font-bold text-xl mb-4">Listening Exercise 2</h3>
-                  <p className="mb-4">Listen to the song and answer the question:</p>
-                  <p className="font-medium mb-3">How many people are in the family?</p>
+                  <h3 className="font-bold text-xl mb-4">Ejercicio de Escucha 2</h3>
+                  <p className="mb-4">Escucha la canción y responde la pregunta:</p>
+                  <p className="font-medium mb-3">¿Cuántas personas hay en la familia?</p>
                   
                   <div className="grid grid-cols-1 gap-3 mt-4">
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      5
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise2 === '5' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise2', '5', false)}
+                    >
+                      <span>5</span>
+                      {listeningAnswers.exercise2 === '5' && <X className="w-5 h-5 text-red-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      6
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise2 === '6' 
+                          ? 'bg-green-100 hover:bg-green-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise2', '6', true)}
+                    >
+                      <span>6</span>
+                      {listeningAnswers.exercise2 === '6' && <Check className="w-5 h-5 text-green-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      7
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        listeningAnswers.exercise2 === '7' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleListeningAnswer('exercise2', '7', false)}
+                    >
+                      <span>7</span>
+                      {listeningAnswers.exercise2 === '7' && <X className="w-5 h-5 text-red-600" />}
                     </button>
                   </div>
                 </div>
               </div>
+              
+              {isExerciseCompleted('listening') && (
+                <div className="mt-8 text-center">
+                  <Link to="/english">
+                    <Button className="kid-button bg-kid-blue">
+                      Volver a la Ruta
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </TabsContent>
 
@@ -97,58 +247,116 @@ const EnglishFamily = () => {
           <TabsContent value="reading" className="focus:outline-none">
             <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
               <div className="bg-soft-blue p-5 rounded-xl mb-8">
-                <h3 className="font-bold text-xl mb-4">My Family</h3>
+                <h3 className="font-bold text-xl mb-4">Mi Familia</h3>
                 <p className="mb-3">
-                  Hi! My name is Emma. I want to tell you about my family. I have a big family.
-                  My mother's name is Sarah. She is a teacher. My father's name is John. He is a doctor.
-                  I have one brother named Tom. He is younger than me. My grandparents live with us too.
-                  My grandmother is very kind. She bakes cookies for us. My grandfather tells funny stories.
-                  We have a dog named Max. He is part of our family too!
+                  ¡Hola! Mi nombre es Emma. Quiero contarte sobre mi familia. Tengo una familia grande.
+                  El nombre de mi madre es Sarah. Ella es profesora. El nombre de mi padre es John. Él es doctor.
+                  Tengo un hermano llamado Tom. Él es menor que yo. Mis abuelos viven con nosotros también.
+                  Mi abuela es muy amable. Ella hornea galletas para nosotros. Mi abuelo cuenta historias divertidas.
+                  Tenemos un perro llamado Max. ¡Él también es parte de nuestra familia!
                 </p>
               </div>
               
               <div className="space-y-8">
                 <div className="bg-soft-blue p-5 rounded-xl">
-                  <h3 className="font-bold text-xl mb-4">Reading Comprehension</h3>
-                  <p className="font-medium mb-3">1. Who is Emma's brother?</p>
+                  <h3 className="font-bold text-xl mb-4">Comprensión de Lectura</h3>
+                  <p className="font-medium mb-3">1. ¿Quién es el hermano de Emma?</p>
                   
                   <div className="grid grid-cols-1 gap-3 mt-4">
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      John
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question1 === 'john' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question1', 'john', false)}
+                    >
+                      <span>John</span>
+                      {readingAnswers.question1 === 'john' && <X className="w-5 h-5 text-red-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      Tom
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question1 === 'tom' 
+                          ? 'bg-green-100 hover:bg-green-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question1', 'tom', true)}
+                    >
+                      <span>Tom</span>
+                      {readingAnswers.question1 === 'tom' && <Check className="w-5 h-5 text-green-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      Max
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question1 === 'max' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question1', 'max', false)}
+                    >
+                      <span>Max</span>
+                      {readingAnswers.question1 === 'max' && <X className="w-5 h-5 text-red-600" />}
                     </button>
                   </div>
                 </div>
                 
                 <div className="bg-soft-blue p-5 rounded-xl">
-                  <h3 className="font-bold text-xl mb-4">Reading Comprehension</h3>
-                  <p className="font-medium mb-3">2. What does Emma's grandmother do?</p>
+                  <h3 className="font-bold text-xl mb-4">Comprensión de Lectura</h3>
+                  <p className="font-medium mb-3">2. ¿Qué hace la abuela de Emma?</p>
                   
                   <div className="grid grid-cols-1 gap-3 mt-4">
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      She tells funny stories
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question2 === 'stories' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question2', 'stories', false)}
+                    >
+                      <span>Cuenta historias divertidas</span>
+                      {readingAnswers.question2 === 'stories' && <X className="w-5 h-5 text-red-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      She bakes cookies
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question2 === 'cookies' 
+                          ? 'bg-green-100 hover:bg-green-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question2', 'cookies', true)}
+                    >
+                      <span>Hornea galletas</span>
+                      {readingAnswers.question2 === 'cookies' && <Check className="w-5 h-5 text-green-600" />}
                     </button>
-                    <button className="p-4 text-lg font-medium rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors">
-                      She is a teacher
+                    <button 
+                      className={`p-4 text-lg font-medium rounded-xl transition-colors flex justify-between items-center ${
+                        readingAnswers.question2 === 'teacher' 
+                          ? 'bg-red-100 hover:bg-red-200' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      onClick={() => handleReadingAnswer('question2', 'teacher', false)}
+                    >
+                      <span>Es profesora</span>
+                      {readingAnswers.question2 === 'teacher' && <X className="w-5 h-5 text-red-600" />}
                     </button>
                   </div>
                 </div>
               </div>
+              
+              {isExerciseCompleted('reading') && (
+                <div className="mt-8 text-center">
+                  <Link to="/english">
+                    <Button className="kid-button bg-kid-blue">
+                      Volver a la Ruta
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </TabsContent>
 
           {/* Vocabulary Tab Content */}
           <TabsContent value="vocabulary" className="focus:outline-none">
             <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-              <h3 className="font-bold text-2xl mb-6 text-center">Family Vocabulary</h3>
+              <h3 className="font-bold text-2xl mb-6 text-center">Vocabulario de la Familia</h3>
               
               <Carousel className="mb-8">
                 <CarouselContent>
@@ -178,47 +386,81 @@ const EnglishFamily = () => {
               </Carousel>
               
               <div className="bg-soft-blue p-5 rounded-xl mt-8">
-                <h3 className="font-bold text-xl mb-4">Vocabulary Exercise</h3>
-                <p className="font-medium mb-3">Connect the words to the right meanings:</p>
+                <h3 className="font-bold text-xl mb-4">Ejercicio de Vocabulario</h3>
+                <p className="font-medium mb-3">Conecta las palabras con su significado correcto:</p>
                 
                 <div className="space-y-4 mt-6">
                   <div className="flex justify-between items-center bg-white p-4 rounded-lg">
                     <span className="font-medium">Mother</span>
-                    <select className="rounded-md border border-gray-300 px-3 py-1">
-                      <option value="">Select...</option>
-                      <option value="madre">Madre</option>
-                      <option value="padre">Padre</option>
-                      <option value="hermana">Hermana</option>
+                    <select 
+                      className={`rounded-md border px-3 py-1 ${
+                        vocabularyAnswers.mother === 'Madre' 
+                          ? 'border-green-500 bg-green-50' 
+                          : vocabularyAnswers.mother 
+                            ? 'border-red-500 bg-red-50' 
+                            : 'border-gray-300'
+                      }`}
+                      value={vocabularyAnswers.mother}
+                      onChange={(e) => handleVocabularyAnswer('mother', e.target.value)}
+                    >
+                      <option value="">Seleccionar...</option>
+                      <option value="Madre">Madre</option>
+                      <option value="Padre">Padre</option>
+                      <option value="Hermana">Hermana</option>
                     </select>
                   </div>
                   
                   <div className="flex justify-between items-center bg-white p-4 rounded-lg">
                     <span className="font-medium">Father</span>
-                    <select className="rounded-md border border-gray-300 px-3 py-1">
-                      <option value="">Select...</option>
-                      <option value="madre">Madre</option>
-                      <option value="padre">Padre</option>
-                      <option value="hermano">Hermano</option>
+                    <select 
+                      className={`rounded-md border px-3 py-1 ${
+                        vocabularyAnswers.father === 'Padre' 
+                          ? 'border-green-500 bg-green-50' 
+                          : vocabularyAnswers.father 
+                            ? 'border-red-500 bg-red-50' 
+                            : 'border-gray-300'
+                      }`}
+                      value={vocabularyAnswers.father}
+                      onChange={(e) => handleVocabularyAnswer('father', e.target.value)}
+                    >
+                      <option value="">Seleccionar...</option>
+                      <option value="Madre">Madre</option>
+                      <option value="Padre">Padre</option>
+                      <option value="Hermano">Hermano</option>
                     </select>
                   </div>
                   
                   <div className="flex justify-between items-center bg-white p-4 rounded-lg">
                     <span className="font-medium">Sister</span>
-                    <select className="rounded-md border border-gray-300 px-3 py-1">
-                      <option value="">Select...</option>
-                      <option value="hermana">Hermana</option>
-                      <option value="hermano">Hermano</option>
-                      <option value="abuela">Abuela</option>
+                    <select 
+                      className={`rounded-md border px-3 py-1 ${
+                        vocabularyAnswers.sister === 'Hermana' 
+                          ? 'border-green-500 bg-green-50' 
+                          : vocabularyAnswers.sister 
+                            ? 'border-red-500 bg-red-50' 
+                            : 'border-gray-300'
+                      }`}
+                      value={vocabularyAnswers.sister}
+                      onChange={(e) => handleVocabularyAnswer('sister', e.target.value)}
+                    >
+                      <option value="">Seleccionar...</option>
+                      <option value="Hermana">Hermana</option>
+                      <option value="Hermano">Hermano</option>
+                      <option value="Abuela">Abuela</option>
                     </select>
                   </div>
                 </div>
-                
-                <div className="mt-6 flex justify-center">
-                  <Button className="kid-button bg-kid-blue">
-                    Check Answers
-                  </Button>
-                </div>
               </div>
+              
+              {isExerciseCompleted('vocabulary') && (
+                <div className="mt-8 text-center">
+                  <Link to="/english">
+                    <Button className="kid-button bg-kid-blue">
+                      Volver a la Ruta
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </TabsContent>
         </Tabs>
@@ -228,3 +470,4 @@ const EnglishFamily = () => {
 };
 
 export default EnglishFamily;
+
