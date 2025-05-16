@@ -19,8 +19,8 @@ const SpanishPath = () => {
     {
       id: 'tuesday',
       title: 'Martes con Timmy',
-      description: 'Timmy hace nuevos amigos',
-      status: 'available', // Changed from 'locked' to 'available'
+      description: 'El dibujo mágico',
+      status: 'available',
       to: '/espanol/martes',
     },
     
@@ -28,8 +28,8 @@ const SpanishPath = () => {
     {
       id: 'wednesday',
       title: 'Miércoles con Timmy',
-      description: 'Timmy enfrenta un reto',
-      status: 'available', // Changed from 'locked' to 'available'
+      description: 'El experimento de ciencias',
+      status: 'available',
       to: '/espanol/miercoles',
     },
     
@@ -37,8 +37,8 @@ const SpanishPath = () => {
     {
       id: 'thursday',
       title: 'Jueves con Timmy',
-      description: 'Timmy aprende algo nuevo',
-      status: 'available', // Changed from 'locked' to 'available'
+      description: 'Mi amigo tecnológico',
+      status: 'available',
       to: '/espanol/jueves',
     },
     
@@ -46,9 +46,18 @@ const SpanishPath = () => {
     {
       id: 'friday',
       title: 'Viernes con Timmy',
-      description: 'Timmy celebra con amigos',
-      status: 'available', // Changed from 'locked' to 'available'
+      description: 'El Tesoro Perdido',
+      status: 'available',
       to: '/espanol/viernes',
+    },
+
+    // Saturday - Day 6
+    {
+      id: 'saturday',
+      title: 'Sábado con Timmy',
+      description: 'La Noche de Camping',
+      status: 'available',
+      to: '/espanol/sabado',
     },
   ]);
 

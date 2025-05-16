@@ -31,6 +31,11 @@ import EnglishEmotions from "./pages/english/EnglishEmotions";
 import Spanish from "./pages/Spanish";
 import SpanishPath from "./pages/spanish/SpanishPath";
 import SpanishMonday from "./pages/spanish/SpanishMonday";
+import SpanishTuesday from "./pages/spanish/SpanishTuesday";
+import SpanishWednesday from "./pages/spanish/SpanishWednesday";
+import SpanishThursday from "./pages/spanish/SpanishThursday";
+import SpanishFriday from "./pages/spanish/SpanishFriday";
+import SpanishSaturday from "./pages/spanish/SpanishSaturday";
 
 import NotFound from "./pages/NotFound";
 
@@ -71,6 +76,11 @@ const App = () => (
           <Route path="/espanol" element={<SpanishPath />} />
           <Route path="/espanol/antiguo" element={<Spanish />} />
           <Route path="/espanol/lunes" element={<SpanishMonday />} />
+          <Route path="/espanol/martes" element={<SpanishTuesday />} />
+          <Route path="/espanol/miercoles" element={<SpanishWednesday />} />
+          <Route path="/espanol/jueves" element={<SpanishThursday />} />
+          <Route path="/espanol/viernes" element={<SpanishFriday />} />
+          <Route path="/espanol/sabado" element={<SpanishSaturday />} />
 
           {/* Keep backward compatibility for now */}
           <Route path="/math" element={<MathPath />} />
@@ -95,6 +105,11 @@ const App = () => (
           <Route path="/spanish" element={<SpanishPath />} />
           <Route path="/spanish/old" element={<Spanish />} />
           <Route path="/spanish/monday" element={<SpanishMonday />} />
+          <Route path="/spanish/tuesday" element={<SpanishTuesday />} />
+          <Route path="/spanish/wednesday" element={<SpanishWednesday />} />
+          <Route path="/spanish/thursday" element={<SpanishThursday />} />
+          <Route path="/spanish/friday" element={<SpanishFriday />} />
+          <Route path="/spanish/saturday" element={<SpanishSaturday />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
