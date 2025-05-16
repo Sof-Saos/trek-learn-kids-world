@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +10,9 @@ import Index from "./pages/Index";
 import Math from "./pages/Math";
 import MathPath from "./pages/math/MathPath";
 import MathAngleLevel1 from "./pages/math/MathAngleLevel1";
+import MathFractionLevel1 from "./pages/math/MathFractionLevel1";
+import MathFractionLevel2 from "./pages/math/MathFractionLevel2";
+import MathFractionLevel3 from "./pages/math/MathFractionLevel3";
 
 // English Routes
 import English from "./pages/English";
@@ -38,6 +42,9 @@ const App = () => (
           <Route path="/matematicas" element={<MathPath />} />
           <Route path="/matematicas/antiguo" element={<Math />} />
           <Route path="/matematicas/angulos/1" element={<MathAngleLevel1 />} />
+          <Route path="/matematicas/fracciones/1" element={<MathFractionLevel1 />} />
+          <Route path="/matematicas/fracciones/2" element={<MathFractionLevel2 />} />
+          <Route path="/matematicas/fracciones/3" element={<MathFractionLevel3 />} />
 
           {/* English Routes - renamed to Spanish */}
           <Route path="/ingles" element={<EnglishPath />} />
@@ -54,6 +61,10 @@ const App = () => (
           <Route path="/math" element={<MathPath />} />
           <Route path="/math/old" element={<Math />} />
           <Route path="/math/angles/1" element={<MathAngleLevel1 />} />
+          <Route path="/math/fractions/1" element={<MathFractionLevel1 />} />
+          <Route path="/math/fractions/2" element={<MathFractionLevel2 />} />
+          <Route path="/math/fractions/3" element={<MathFractionLevel3 />} />
+          
           <Route path="/english" element={<EnglishPath />} />
           <Route path="/english/old" element={<English />} />
           <Route path="/english/songs" element={<EnglishSongs />} />

@@ -1,84 +1,84 @@
 
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
-import { Calculator, CircleEqual, CircleDot } from 'lucide-react';
+import { Calculator, CircleEqual, CircleDot, Pie } from 'lucide-react';
 
 const mathNodes: LessonNode[] = [
   // Angles
   {
     id: 'angles-1',
-    title: 'Angles - Basic',
-    description: 'Learn to identify and measure basic angles',
+    title: 'Ángulos - Básico',
+    description: 'Aprende a identificar y medir ángulos básicos',
     status: 'available',
-    to: '/math/angles/1',
+    to: '/matematicas/angulos/1',
     level: 1
   },
   {
     id: 'angles-2',
-    title: 'Angles - Intermediate',
-    description: 'Understand acute, obtuse, and right angles',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/angles/2',
+    title: 'Ángulos - Intermedio',
+    description: 'Comprende ángulos agudos, obtusos y rectos',
+    status: 'available',
+    to: '/matematicas/angulos/2',
     level: 2
   },
   {
     id: 'angles-3',
-    title: 'Angles - Advanced',
-    description: 'Work with complementary and supplementary angles',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/angles/3',
+    title: 'Ángulos - Avanzado',
+    description: 'Trabaja con ángulos complementarios y suplementarios',
+    status: 'available',
+    to: '/matematicas/angulos/3',
     level: 3
   },
   
-  // Fractions
+  // Fractions - New section
   {
     id: 'fractions-1',
-    title: 'Fractions - Basic',
-    description: 'Understand what fractions represent',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/fractions/1',
+    title: 'Fracciones - Básico',
+    description: 'Comprensión visual de fracciones simples',
+    status: 'available',
+    to: '/matematicas/fracciones/1',
     level: 1
   },
   {
     id: 'fractions-2',
-    title: 'Fractions - Intermediate',
-    description: 'Compare fractions with different denominators',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/fractions/2',
+    title: 'Fracciones - Medio',
+    description: 'Uso de fracciones en contexto',
+    status: 'available',
+    to: '/matematicas/fracciones/2',
     level: 2
   },
   {
     id: 'fractions-3',
-    title: 'Fractions - Advanced',
-    description: 'Add and subtract fractions',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/fractions/3',
+    title: 'Fracciones - Avanzado',
+    description: 'Comparación y equivalencias de fracciones',
+    status: 'available',
+    to: '/matematicas/fracciones/3',
     level: 3
   },
   
   // Multiplication and Division
   {
     id: 'mult-div-1',
-    title: 'Multiplication & Division - Basic',
-    description: 'Learn basic multiplication and division facts',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/mult-div/1',
+    title: 'Multiplicación y División - Básico',
+    description: 'Aprende multiplicación y división básica',
+    status: 'available',
+    to: '/matematicas/mult-div/1',
     level: 1
   },
   {
     id: 'mult-div-2',
-    title: 'Multiplication & Division - Intermediate',
-    description: 'Work with larger numbers and remainders',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/mult-div/2',
+    title: 'Multiplicación y División - Intermedio',
+    description: 'Trabaja con números grandes y residuos',
+    status: 'available',
+    to: '/matematicas/mult-div/2',
     level: 2
   },
   {
     id: 'mult-div-3',
-    title: 'Multiplication & Division - Advanced',
-    description: 'Solve multi-step problems with multiplication and division',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/math/mult-div/3',
+    title: 'Multiplicación y División - Avanzado',
+    description: 'Resuelve problemas de varios pasos con multiplicación y división',
+    status: 'available',
+    to: '/matematicas/mult-div/3',
     level: 3
   },
 ];
@@ -98,8 +98,8 @@ const MathPath = () => {
       
         <PathView 
           nodes={mathNodes} 
-          title="Math Learning Path" 
-          subtitle="Master angles, fractions, and operations" 
+          title="Ruta de Aprendizaje de Matemáticas" 
+          subtitle="Domina ángulos, fracciones, y operaciones" 
           pathColor="#4ade80"
           pathBgColor="#dcfce7"
         />
@@ -110,24 +110,24 @@ const MathPath = () => {
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
                 <CircleDot className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-bold mb-2">Angles</h3>
-              <p className="text-sm">Learn to measure and work with different types of angles</p>
+              <h3 className="font-bold mb-2">Ángulos</h3>
+              <p className="text-sm">Aprende a medir y trabajar con diferentes tipos de ángulos</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
-                <CircleEqual className="w-8 h-8 text-green-600" />
+                <Pie className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-bold mb-2">Fractions</h3>
-              <p className="text-sm">Master fractions and how to use them in calculations</p>
+              <h3 className="font-bold mb-2">Fracciones</h3>
+              <p className="text-sm">Domina fracciones y cómo usarlas en cálculos</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
                 <Calculator className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="font-bold mb-2">Multiplication & Division</h3>
-              <p className="text-sm">Learn essential math operations for everyday problems</p>
+              <h3 className="font-bold mb-2">Multiplicación y División</h3>
+              <p className="text-sm">Aprende operaciones matemáticas esenciales para problemas cotidianos</p>
             </div>
           </div>
         </div>
