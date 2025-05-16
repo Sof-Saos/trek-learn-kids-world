@@ -13,6 +13,9 @@ import MathAngleLevel1 from "./pages/math/MathAngleLevel1";
 import MathFractionLevel1 from "./pages/math/MathFractionLevel1";
 import MathFractionLevel2 from "./pages/math/MathFractionLevel2";
 import MathFractionLevel3 from "./pages/math/MathFractionLevel3";
+import MathMultDivLevel1 from "./pages/math/MathMultDivLevel1";
+import MathMultDivLevel2 from "./pages/math/MathMultDivLevel2";
+import MathMultDivLevel3 from "./pages/math/MathMultDivLevel3";
 
 // English Routes
 import English from "./pages/English";
@@ -45,6 +48,9 @@ const App = () => (
           <Route path="/matematicas/fracciones/1" element={<MathFractionLevel1 />} />
           <Route path="/matematicas/fracciones/2" element={<MathFractionLevel2 />} />
           <Route path="/matematicas/fracciones/3" element={<MathFractionLevel3 />} />
+          <Route path="/matematicas/mult-div/1" element={<MathMultDivLevel1 />} />
+          <Route path="/matematicas/mult-div/2" element={<MathMultDivLevel2 />} />
+          <Route path="/matematicas/mult-div/3" element={<MathMultDivLevel3 />} />
 
           {/* English Routes - renamed to Spanish */}
           <Route path="/ingles" element={<EnglishPath />} />
@@ -64,6 +70,9 @@ const App = () => (
           <Route path="/math/fractions/1" element={<MathFractionLevel1 />} />
           <Route path="/math/fractions/2" element={<MathFractionLevel2 />} />
           <Route path="/math/fractions/3" element={<MathFractionLevel3 />} />
+          <Route path="/math/mult-div/1" element={<MathMultDivLevel1 />} />
+          <Route path="/math/mult-div/2" element={<MathMultDivLevel2 />} />
+          <Route path="/math/mult-div/3" element={<MathMultDivLevel3 />} />
           
           <Route path="/english" element={<EnglishPath />} />
           <Route path="/english/old" element={<English />} />
