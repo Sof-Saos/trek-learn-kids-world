@@ -1,8 +1,9 @@
 
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
-import { Users, Home, Smile, Cat, School, BookOpen, HeadphonesIcon, BookIcon } from 'lucide-react';
+import { Users, Home, Smile, Cat, School, BookOpen } from 'lucide-react';
 
+// Updated nodes with topics as separate lessons
 const englishNodes: LessonNode[] = [
   // Family
   {
@@ -10,25 +11,43 @@ const englishNodes: LessonNode[] = [
     title: 'Family',
     description: 'Learn vocabulary related to family members',
     status: 'available',
-    to: '/english/family',
+    to: '/ingles/familia',
   },
   
-  // Parts of the House
+  // School
+  {
+    id: 'school',
+    title: 'School',
+    description: 'Vocabulary and expressions related to school',
+    status: 'available',
+    to: '/ingles/escuela',
+  },
+  
+  // Animals
+  {
+    id: 'animals',
+    title: 'Animals',
+    description: 'Learn about different animals and their characteristics',
+    status: 'available',
+    to: '/ingles/animales',
+  },
+  
+  // House
   {
     id: 'house',
-    title: 'Parts of the House',
+    title: 'House',
     description: 'Discover words for different rooms and objects in a house',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/english/house',
+    status: 'available',
+    to: '/ingles/casa',
   },
   
-  // Parts of the Body
+  // Body
   {
     id: 'body',
-    title: 'Parts of the Body',
+    title: 'Body',
     description: 'Learn to name different parts of the body',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/english/body',
+    status: 'available',
+    to: '/ingles/cuerpo',
   },
   
   // Emotions
@@ -36,26 +55,8 @@ const englishNodes: LessonNode[] = [
     id: 'emotions',
     title: 'Emotions',
     description: 'Understand and express different feelings',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/english/emotions',
-  },
-  
-  // Animals
-  {
-    id: 'animals',
-    title: 'Animals',
-    description: 'Learn about different animals and their habitats',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/english/animals',
-  },
-  
-  // School
-  {
-    id: 'school',
-    title: 'School',
-    description: 'Vocabulary related to classroom and school activities',
-    status: 'available', // Changed from 'locked' to 'available'
-    to: '/english/school',
+    status: 'available',
+    to: '/ingles/emociones',
   },
 ];
 
@@ -83,18 +84,26 @@ const EnglishPath = () => {
         <div className="mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
           <h3 className="text-2xl font-bold mb-4 text-center">English Learning Activities</h3>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <HeadphonesIcon className="w-6 h-6 text-white" />
+                <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-bold">Listening</h4>
-              <p className="text-sm mt-1">Listen to native speakers and understand</p>
+              <h4 className="font-bold">Grammar</h4>
+              <p className="text-sm mt-1">Learn language structures and rules</p>
             </div>
             
             <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <BookIcon className="w-6 h-6 text-white" />
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="font-bold">Vocabulary</h4>
+              <p className="text-sm mt-1">Learn new words and their meanings</p>
+            </div>
+            
+            <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
+              <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
+                <BookOpen className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-bold">Reading</h4>
               <p className="text-sm mt-1">Read short stories and answer questions</p>
@@ -104,8 +113,8 @@ const EnglishPath = () => {
               <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h4 className="font-bold">Vocabulary</h4>
-              <p className="text-sm mt-1">Learn new words and their meanings</p>
+              <h4 className="font-bold">Listening</h4>
+              <p className="text-sm mt-1">Listen to native speakers and understand</p>
             </div>
           </div>
         </div>

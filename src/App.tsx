@@ -30,6 +30,13 @@ import SpanishMonday from "./pages/spanish/SpanishMonday";
 
 import NotFound from "./pages/NotFound";
 
+// New English Routes (placeholders, will be implemented)
+const EnglishSchool = () => <EnglishFamily />;
+const EnglishAnimals = () => <EnglishFamily />;
+const EnglishHouse = () => <EnglishFamily />;
+const EnglishBody = () => <EnglishFamily />;
+const EnglishEmotions = () => <EnglishFamily />;
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -57,6 +64,11 @@ const App = () => (
           <Route path="/ingles/antiguo" element={<English />} />
           <Route path="/ingles/canciones" element={<EnglishSongs />} />
           <Route path="/ingles/familia" element={<EnglishFamily />} />
+          <Route path="/ingles/escuela" element={<EnglishSchool />} />
+          <Route path="/ingles/animales" element={<EnglishAnimals />} />
+          <Route path="/ingles/casa" element={<EnglishHouse />} />
+          <Route path="/ingles/cuerpo" element={<EnglishBody />} />
+          <Route path="/ingles/emociones" element={<EnglishEmotions />} />
 
           {/* Spanish Routes - renamed to Spanish */}
           <Route path="/espanol" element={<SpanishPath />} />
@@ -78,6 +90,11 @@ const App = () => (
           <Route path="/english/old" element={<English />} />
           <Route path="/english/songs" element={<EnglishSongs />} />
           <Route path="/english/family" element={<EnglishFamily />} />
+          <Route path="/english/school" element={<EnglishSchool />} />
+          <Route path="/english/animals" element={<EnglishAnimals />} />
+          <Route path="/english/house" element={<EnglishHouse />} />
+          <Route path="/english/body" element={<EnglishBody />} />
+          <Route path="/english/emotions" element={<EnglishEmotions />} />
           <Route path="/spanish" element={<SpanishPath />} />
           <Route path="/spanish/old" element={<Spanish />} />
           <Route path="/spanish/monday" element={<SpanishMonday />} />

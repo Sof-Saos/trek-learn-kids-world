@@ -1,0 +1,223 @@
+
+// This is a template to copy for each of the other topics
+// Copy this content and customize for each topic (School, Animals, House, Body, Emotions)
+
+import Header from '@/components/Header';
+import EnglishLesson, { LessonContent } from '@/components/english/EnglishLesson';
+
+const topicLessonContent: LessonContent = {
+  grammar: {
+    table: {
+      headers: ['Subject', 'Verb "to be"', 'Example'],
+      rows: [
+        ['I', 'am', 'I am ...'],
+        ['You', 'are', 'You are ...'],
+        ['He', 'is', 'He is ...'],
+        ['She', 'is', 'She is ...'],
+        ['It', 'is', 'It is ...'],
+        ['We', 'are', 'We are ...'],
+        ['You', 'are', 'You are ...'],
+        ['They', 'are', 'They are ...'],
+      ],
+    },
+    questions: [
+      {
+        id: 1,
+        question: '"It ___ a ..."',
+        options: [
+          { id: 'A', text: 'am' },
+          { id: 'B', text: 'is' },
+          { id: 'C', text: 'are' },
+        ],
+        correctAnswer: 'B',
+      },
+      {
+        id: 2,
+        question: '"They ___ ..."',
+        options: [
+          { id: 'A', text: 'is' },
+          { id: 'B', text: 'am' },
+          { id: 'C', text: 'are' },
+        ],
+        correctAnswer: 'C',
+      },
+      {
+        id: 3,
+        question: '¿Cuál es el sujeto en: "She is ..."?',
+        options: [
+          { id: 'A', text: 'She' },
+          { id: 'B', text: 'is' },
+          { id: 'C', text: '...' },
+        ],
+        correctAnswer: 'A',
+      },
+      {
+        id: 4,
+        question: '¿Cuál es el verbo en: "We are ..."?',
+        options: [
+          { id: 'A', text: 'We' },
+          { id: 'B', text: 'are' },
+          { id: 'C', text: '...' },
+        ],
+        correctAnswer: 'B',
+      },
+    ],
+  },
+  vocabulary: {
+    words: [
+      'Word 1 - Translation',
+      'Word 2 - Translation',
+      'Word 3 - Translation',
+      'Word 4 - Translation',
+      'Word 5 - Translation',
+      'Word 6 - Translation',
+      'Word 7 - Translation',
+      'Word 8 - Translation',
+    ],
+    questions: [
+      {
+        id: 1,
+        question: 'Question 1?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+      {
+        id: 2,
+        question: 'Question 2?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'B',
+      },
+      {
+        id: 3,
+        question: 'Question 3?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'C',
+      },
+      {
+        id: 4,
+        question: 'Question 4?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+    ],
+  },
+  reading: {
+    story: "Title\n\nParagraph 1\n\nParagraph 2\n\nParagraph 3",
+    questions: [
+      {
+        id: 1,
+        question: 'Question 1?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+      {
+        id: 2,
+        question: 'Question 2?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'B',
+      },
+      {
+        id: 3,
+        question: 'Question 3?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'C',
+      },
+      {
+        id: 4,
+        question: 'Question 4?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+    ],
+  },
+  listening: {
+    videoId: 'VIDEO_ID_HERE',
+    questions: [
+      {
+        id: 1,
+        question: 'Question 1?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+      {
+        id: 2,
+        question: 'Question 2?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'B',
+      },
+      {
+        id: 3,
+        question: 'Question 3?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'C',
+      },
+      {
+        id: 4,
+        question: 'Question 4?',
+        options: [
+          { id: 'A', text: 'Option 1' },
+          { id: 'B', text: 'Option 2' },
+          { id: 'C', text: 'Option 3' },
+        ],
+        correctAnswer: 'A',
+      },
+    ],
+  },
+};
+
+const EnglishTopicPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-soft-blue">
+      <Header />
+      <main className="kid-container py-8">
+        <EnglishLesson topic="Topic Name" content={topicLessonContent} />
+      </main>
+    </div>
+  );
+};
+
+export default EnglishTopicPage;
