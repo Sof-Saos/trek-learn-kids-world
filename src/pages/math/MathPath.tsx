@@ -1,7 +1,7 @@
 
 import Header from '@/components/Header';
 import PathView, { LessonNode } from '@/components/PathView';
-import { Calculator, CircleEqual, CircleDot, Pie } from 'lucide-react';
+import { Calculator, CircleEqual, CircleDot, PieChart } from 'lucide-react';
 
 const mathNodes: LessonNode[] = [
   // Angles
@@ -116,7 +116,7 @@ const MathPath = () => {
             
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center mb-4">
-                <Pie className="w-8 h-8 text-green-600" />
+                <PieChart className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="font-bold mb-2">Fracciones</h3>
               <p className="text-sm">Domina fracciones y cómo usarlas en cálculos</p>

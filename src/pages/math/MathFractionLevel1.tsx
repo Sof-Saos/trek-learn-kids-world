@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Check, Apple, Pie } from 'lucide-react';
+import { ArrowLeft, Check, Apple, PieChart } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card } from '@/components/ui/card';
 
@@ -117,7 +117,7 @@ const MathFractionLevel1 = () => {
       case 'apple':
         return <Apple className="w-16 h-16 text-red-500" />;
       case 'pizza':
-        return <Pie className="w-16 h-16 text-yellow-600" />;
+        return <PieChart className="w-16 h-16 text-yellow-600" />;
       case 'chocolate':
         return <div className="w-16 h-8 bg-amber-800 rounded-sm"></div>;
       case 'figure':

@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Check, Pie } from 'lucide-react';
+import { ArrowLeft, Check, PieChart } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card } from '@/components/ui/card';
 
@@ -168,7 +167,7 @@ const MathFractionLevel2 = () => {
           </div>
         );
       default:
-        return <Pie className="w-16 h-16 text-yellow-600" />;
+        return <PieChart className="w-16 h-16 text-yellow-600" />;
     }
   };
 
