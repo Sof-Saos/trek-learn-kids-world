@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +21,11 @@ import English from "./pages/English";
 import EnglishPath from "./pages/english/EnglishPath";
 import EnglishSongs from "./pages/EnglishSongs";
 import EnglishFamily from "./pages/english/EnglishFamily";
+import EnglishSchool from "./pages/english/EnglishSchool";
+import EnglishAnimals from "./pages/english/EnglishAnimals";
+import EnglishHouse from "./pages/english/EnglishHouse";
+import EnglishBody from "./pages/english/EnglishBody";
+import EnglishEmotions from "./pages/english/EnglishEmotions";
 
 // Spanish Routes
 import Spanish from "./pages/Spanish";
@@ -29,13 +33,6 @@ import SpanishPath from "./pages/spanish/SpanishPath";
 import SpanishMonday from "./pages/spanish/SpanishMonday";
 
 import NotFound from "./pages/NotFound";
-
-// New English Routes (placeholders, will be implemented)
-const EnglishSchool = () => <EnglishFamily />;
-const EnglishAnimals = () => <EnglishFamily />;
-const EnglishHouse = () => <EnglishFamily />;
-const EnglishBody = () => <EnglishFamily />;
-const EnglishEmotions = () => <EnglishFamily />;
 
 const queryClient = new QueryClient();
 
