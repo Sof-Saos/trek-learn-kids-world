@@ -10,6 +10,7 @@ interface Question {
   id: number;
   question: string;
   image?: string;
+  imageDescription: string;
   options: string[];
   correctAnswer: string;
 }
@@ -18,35 +19,35 @@ const questions: Question[] = [
   {
     id: 1,
     question: "El ángulo mostrado mide 120°. ¿Qué tipo de ángulo es?",
-    image: "angle-120-degrees.png", // Placeholder for the image
+    imageDescription: "Imagen de un ángulo de 120 grados",
     options: ["Ángulo obtuso", "Ángulo agudo", "Ángulo recto"],
     correctAnswer: "Ángulo obtuso"
   },
   {
     id: 2,
     question: "Compara estos dos ángulos: uno mide 45° y el otro 135°. ¿Cuál afirmación es correcta?",
-    image: "angle-comparison.png", // Placeholder for the image
+    imageDescription: "Imagen con dos ángulos: uno de 45° y otro de 135°",
     options: ["45° > 135°", "45° = 135°", "45° < 135°"],
     correctAnswer: "45° < 135°"
   },
   {
     id: 3,
     question: "Un ángulo se mide como 270°. ¿Qué tipo de ángulo es?",
-    image: "angle-270-degrees.png", // Placeholder for the image
+    imageDescription: "Imagen de un ángulo de 270 grados",
     options: ["Ángulo recto", "Ángulo reflejo", "Ángulo llano"],
     correctAnswer: "Ángulo reflejo"
   },
   {
     id: 4,
     question: "Si sumas un ángulo de 60° y otro de 30°, ¿cuál es la medida del ángulo resultante?",
-    image: "angle-addition.png", // Placeholder for the image
+    imageDescription: "Imagen mostrando la suma de un ángulo de 60° y otro de 30°",
     options: ["90°", "120°", "45°"],
     correctAnswer: "90°"
   },
   {
     id: 5,
     question: "¿Cuál de estos pares de ángulos son suplementarios (suman 180°)?",
-    image: "angle-supplementary.png", // Placeholder for the image
+    imageDescription: "Imagen mostrando diferentes pares de ángulos",
     options: ["30° y 150°", "45° y 90°", "100° y 100°"],
     correctAnswer: "30° y 150°"
   },
@@ -59,7 +60,7 @@ const MathAngleLevel3 = () => {
   const [showResults, setShowResults] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
   const { toast } = useToast();
-
+  
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
@@ -109,7 +110,7 @@ const MathAngleLevel3 = () => {
     setShowResults(false);
     setAttemptCount(0);
   };
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-soft-green">
       <Header />
@@ -123,8 +124,8 @@ const MathAngleLevel3 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Ángulos - Nivel 3</h1>
-          <p className="text-gray-700">Midiendo y comparando ángulos</p>
+          <h1 className="text-3xl font-bold mb-2">Medición y comparación de ángulos</h1>
+          <p className="text-gray-700">Aprende a medir y comparar diferentes tipos de ángulos</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
@@ -139,10 +140,10 @@ const MathAngleLevel3 = () => {
                   <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-12 h-12 text-green-500" />
                   </div>
-                  <p className="text-green-600 font-bold text-lg">¡Felicidades! ¡Has dominado todos los niveles de ángulos!</p>
+                  <p className="text-green-600 font-bold text-lg">¡Eres un experto en ángulos! ¡Felicidades!</p>
                 </div>
               ) : (
-                <p className="mb-6">Sigue practicando - ¡estás progresando muy bien!</p>
+                <p className="mb-6">Sigue practicando para dominar la medición de ángulos.</p>
               )}
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
@@ -174,9 +175,29 @@ const MathAngleLevel3 = () => {
                 </h2>
                 
                 <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-                  <p className="text-gray-500">
-                    La imagen del ángulo se mostrará aquí
+                  <img 
+                    src="{placeholder}" 
+                    alt={questions[currentQuestion].imageDescription}
+                    className="max-h-full"
+                  />
+                  <p className="text-center text-gray-500 text-sm mt-1">
+                    {questions[currentQuestion].imageDescription}
                   </p>
+                </div>
+                
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-md">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg className="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-blue-700">
+                        Recuerda: Los ángulos se miden en grados (°) y pueden compararse por su tamaño.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -199,9 +220,9 @@ const MathAngleLevel3 = () => {
               {attemptCount > 0 && (
                 <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-center">
                   <p className="text-green-700">
-                    {attemptCount === 1 ? "¡Sigue intentándolo!" : 
-                     attemptCount === 2 ? "Recuerda las propiedades de los ángulos." : 
-                     "Pista: Observa con cuidado la medida del ángulo."}
+                    {attemptCount === 1 ? "Intenta de nuevo. Piensa en la medida de los ángulos." : 
+                     attemptCount === 2 ? "Recuerda cómo se clasifican los ángulos según sus grados." : 
+                     "Pista: Observa cuidadosamente la medida en grados de cada ángulo."}
                   </p>
                 </div>
               )}

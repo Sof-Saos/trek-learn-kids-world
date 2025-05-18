@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ interface Question {
   id: number;
   question: string;
   image?: string;
+  imageDescription?: string;
   options: string[];
   correctAnswer: string;
 }
@@ -18,30 +19,35 @@ const questions: Question[] = [
   {
     id: 1,
     question: "¿Cómo se llama un ángulo que mide 90°?",
+    imageDescription: "Imagen de un ángulo recto de 90 grados",
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso"],
     correctAnswer: "Ángulo recto"
   },
   {
     id: 2,
     question: "¿Cuál ángulo es menor que 90°?",
+    imageDescription: "Imagen de un ángulo agudo menor de 90 grados",
     options: ["Ángulo obtuso", "Ángulo recto", "Ángulo agudo"],
     correctAnswer: "Ángulo agudo"
   },
   {
     id: 3,
     question: "¿Cuántos grados tiene un ángulo llano?",
+    imageDescription: "Imagen de un ángulo llano de 180 grados",
     options: ["180°", "90°", "360°"],
     correctAnswer: "180°"
   },
   {
     id: 4,
     question: "¿Cómo se llama un ángulo mayor de 90° pero menor de 180°?",
+    imageDescription: "Imagen de un ángulo obtuso entre 90 y 180 grados",
     options: ["Ángulo agudo", "Ángulo obtuso", "Ángulo reflejo"],
     correctAnswer: "Ángulo obtuso"
   },
   {
     id: 5,
     question: "¿Cuál de estos NO es un ángulo?",
+    imageDescription: "Imagen comparativa de objetos con y sin ángulos",
     options: ["La apertura de un libro", "Una esquina de un cuadrado", "La curva de una regla"],
     correctAnswer: "La curva de una regla"
   },
@@ -54,13 +60,6 @@ const MathAngleLevel1 = () => {
   const [showResults, setShowResults] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Mark Angles Level 2 as available in localStorage when quiz is completed successfully
-    if (showResults && score === questions.length) {
-      localStorage.setItem('math_angles_level2_unlocked', 'true');
-    }
-  }, [showResults, score, questions.length]);
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
@@ -125,9 +124,59 @@ const MathAngleLevel1 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Ángulos - Nivel 1</h1>
-          <p className="text-gray-700">Conociendo los ángulos</p>
+          <h1 className="text-3xl font-bold mb-2">Conceptos y vocabulario de ángulos</h1>
+          <p className="text-gray-700">Aprende los diferentes tipos de ángulos</p>
         </div>
+
+        {/* Introduction section */}
+        {!showResults && currentQuestion === 0 && (
+          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-6">
+            <h2 className="text-2xl font-bold mb-4">Tipos de Ángulos</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-bold mb-2">Ángulo Agudo</h3>
+                <p className="mb-3">Mide menos de 90 grados</p>
+                <div className="aspect-square max-w-[120px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
+                  <img src="{placeholder}" alt="Ángulo agudo" className="max-h-full" />
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-bold mb-2">Ángulo Recto</h3>
+                <p className="mb-3">Mide exactamente 90 grados</p>
+                <div className="aspect-square max-w-[120px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
+                  <img src="{placeholder}" alt="Ángulo recto" className="max-h-full" />
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-bold mb-2">Ángulo Obtuso</h3>
+                <p className="mb-3">Mide más de 90 pero menos de 180 grados</p>
+                <div className="aspect-square max-w-[120px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
+                  <img src="{placeholder}" alt="Ángulo obtuso" className="max-h-full" />
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="font-bold mb-2">Ángulo Llano</h3>
+                <p className="mb-3">Mide exactamente 180 grados</p>
+                <div className="aspect-square max-w-[120px] mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
+                  <img src="{placeholder}" alt="Ángulo llano" className="max-h-full" />
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Button 
+                onClick={() => setCurrentQuestion(1)}
+                className="kid-button bg-kid-green"
+              >
+                ¡Vamos a practicar!
+              </Button>
+            </div>
+          </div>
+        )}
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
           {showResults ? (
@@ -141,7 +190,7 @@ const MathAngleLevel1 = () => {
                   <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-12 h-12 text-green-500" />
                   </div>
-                  <p className="text-green-600 font-bold text-lg">¡Puntuación Perfecta! ¡Has desbloqueado el Nivel 2!</p>
+                  <p className="text-green-600 font-bold text-lg">¡Puntuación Perfecta! ¡Felicidades!</p>
                 </div>
               ) : (
                 <p className="mb-6">Sigue practicando - ¡lo estás haciendo muy bien!</p>
@@ -158,43 +207,42 @@ const MathAngleLevel1 = () => {
                     Volver a la Ruta
                   </Button>
                 </Link>
-                {score === questions.length && (
-                  <Link to="/matematicas/angulos/2">
-                    <Button className="kid-button bg-kid-green">
-                      Ir al Nivel 2
-                    </Button>
-                  </Link>
-                )}
+                <Link to="/matematicas/angulos/2">
+                  <Button className="kid-button bg-kid-green">
+                    Ir al Nivel 2
+                  </Button>
+                </Link>
               </div>
             </div>
-          ) : (
+          ) : currentQuestion > 0 ? (
             <>
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm text-gray-500">
-                    Pregunta {currentQuestion + 1} de {questions.length}
+                    Pregunta {currentQuestion} de {questions.length}
                   </span>
                   <span className="text-sm text-gray-500">
                     Nivel 1 · Básico
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold mb-4">
-                  {questions[currentQuestion].question}
+                  {questions[currentQuestion-1].question}
                 </h2>
                 
-                {questions[currentQuestion].image && (
-                  <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-                    <img 
-                      src={questions[currentQuestion].image} 
-                      alt="Imagen del ángulo"
-                      className="max-h-full"
-                    />
-                  </div>
-                )}
+                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+                  <img 
+                    src="{placeholder}" 
+                    alt={questions[currentQuestion-1].imageDescription}
+                    className="max-h-full"
+                  />
+                  <p className="text-center text-gray-500 text-sm mt-1">
+                    {questions[currentQuestion-1].imageDescription}
+                  </p>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3 mb-6">
-                {questions[currentQuestion].options.map((option) => (
+                {questions[currentQuestion-1].options.map((option) => (
                   <button
                     key={option}
                     onClick={() => handleAnswerSelect(option)}
@@ -228,7 +276,7 @@ const MathAngleLevel1 = () => {
                 </Button>
               </div>
             </>
-          )}
+          ) : null}
         </div>
       </main>
     </div>

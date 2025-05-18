@@ -1,10 +1,9 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Check, Info } from 'lucide-react';
-import { Card } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
 
 interface Question {
@@ -131,13 +130,6 @@ const MathAngleLevel2 = () => {
   const [attemptCount, setAttemptCount] = useState(0);
   const { toast } = useToast();
 
-  useEffect(() => {
-    // Mark Angles Level 3 as available in localStorage when quiz is completed successfully
-    if (showResults && score >= questions.length * 0.7) {  // 70% correct to unlock next level
-      localStorage.setItem('math_angles_level3_unlocked', 'true');
-    }
-  }, [showResults, score, questions.length]);
-
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
   };
@@ -201,8 +193,8 @@ const MathAngleLevel2 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Ángulos - Nivel 2</h1>
-          <p className="text-gray-700">Identifica ángulos en objetos cotidianos</p>
+          <h1 className="text-3xl font-bold mb-2">Identifica ángulos en imágenes</h1>
+          <p className="text-gray-700">Reconoce tipos de ángulos en objetos de la vida real</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
@@ -218,12 +210,12 @@ const MathAngleLevel2 = () => {
                     <Check className="w-12 h-12 text-green-500" />
                   </div>
                   <p className="text-green-600 font-bold text-lg">
-                    ¡Has desbloqueado el Nivel 3! Ya puedes pasar a ángulos avanzados.
+                    ¡Excelente trabajo identificando ángulos en objetos cotidianos!
                   </p>
                 </div>
               ) : (
                 <p className="mb-6">
-                  Sigue practicando para desbloquear el nivel avanzado. ¡Lo lograrás!
+                  Sigue practicando para mejorar tu habilidad de identificar ángulos.
                 </p>
               )}
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -238,13 +230,11 @@ const MathAngleLevel2 = () => {
                     Volver a la Ruta
                   </Button>
                 </Link>
-                {score >= questions.length * 0.7 && (
-                  <Link to="/matematicas/angulos/3">
-                    <Button className="kid-button bg-kid-purple">
-                      Ir al Nivel 3
-                    </Button>
-                  </Link>
-                )}
+                <Link to="/matematicas/angulos/3">
+                  <Button className="kid-button bg-kid-purple">
+                    Ir al Nivel 3
+                  </Button>
+                </Link>
               </div>
             </div>
           ) : (
@@ -264,7 +254,7 @@ const MathAngleLevel2 = () => {
                 
                 <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6 relative">
                   <img 
-                    src={`{placeholder_link}`} 
+                    src="{placeholder}" 
                     alt={questions[currentQuestion].imageDescription}
                     className="max-w-full max-h-full object-contain"
                   />
