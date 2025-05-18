@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Robot } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
@@ -73,7 +73,7 @@ const SpanishThursday = () => {
         
         <SpanishLesson
           title="Mi amigo tecnológico"
-          icon={<Robot className="h-8 w-8 text-orange-500" />}
+          icon={<Bot className="h-8 w-8 text-orange-500" />}
           questions={robotQuestions}
           activityTitle="¡Diseña tu robot!"
           activityDescription="Imagina tu propio robot. ¿Qué funciones tendría? ¿Cómo te ayudaría? Dibuja cómo sería y escribe qué cosas podría hacer."

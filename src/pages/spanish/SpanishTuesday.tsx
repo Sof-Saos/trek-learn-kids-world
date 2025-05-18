@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Dragon } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
@@ -73,7 +73,7 @@ const SpanishTuesday = () => {
         
         <SpanishLesson
           title="El dibujo mágico"
-          icon={<Dragon className="h-8 w-8 text-orange-500" />}
+          icon={<Flame className="h-8 w-8 text-orange-500" />}
           questions={dragonQuestions}
           activityTitle="¡Dibuja tu propio dragón mágico!"
           activityDescription="Dibuja un dragón que te gustaría que cobrara vida. ¿Qué colores tendría? ¿Qué poderes especiales tendría? ¿Cómo se llamaría?"
