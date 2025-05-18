@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { HeadphonesIcon, BookOpen, BookIcon, Library } from 'lucide-react';
+import { HeadphonesIcon, BookOpen, BookIcon, Library, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -44,6 +44,21 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string | null>>({});
   const [showAnswers, setShowAnswers] = useState(false);
 
+  const tabs = ['grammar', 'vocabulary', 'reading', 'listening'];
+  
+  const getNextTab = (currentTab: string): string => {
+    const currentIndex = tabs.indexOf(currentTab);
+    if (currentIndex < tabs.length - 1) {
+      return tabs[currentIndex + 1];
+    }
+    return tabs[0]; // Loop back to first tab if at end
+  };
+
+  const handleTabChange = (nextTab: string) => {
+    setActiveTab(nextTab);
+    setShowAnswers(false);
+  };
+
   const getContentForTab = () => {
     switch (activeTab) {
       case 'grammar':
@@ -79,6 +94,15 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
               <h4 className="font-bold text-lg">Practice Questions</h4>
               {renderQuestions('grammar')}
             </div>
+            
+            <div className="flex justify-end mt-6">
+              <Button
+                onClick={() => handleTabChange('vocabulary')}
+                className="flex items-center gap-2 bg-kid-blue hover:bg-blue-600"
+              >
+                Next: Vocabulary <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         );
       
@@ -103,6 +127,15 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
               <h4 className="font-bold text-lg">Practice Questions</h4>
               {renderQuestions('vocabulary')}
             </div>
+            
+            <div className="flex justify-end mt-6">
+              <Button
+                onClick={() => handleTabChange('reading')}
+                className="flex items-center gap-2 bg-kid-blue hover:bg-blue-600"
+              >
+                Next: Reading <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         );
       
@@ -123,6 +156,15 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
             <div className="space-y-4 mt-6">
               <h4 className="font-bold text-lg">Comprehension Questions</h4>
               {renderQuestions('reading')}
+            </div>
+            
+            <div className="flex justify-end mt-6">
+              <Button
+                onClick={() => handleTabChange('listening')}
+                className="flex items-center gap-2 bg-kid-blue hover:bg-blue-600"
+              >
+                Next: Listening <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
         );
@@ -149,6 +191,15 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
             <div className="space-y-4 mt-6">
               <h4 className="font-bold text-lg">Listening Questions</h4>
               {renderQuestions('listening')}
+            </div>
+            
+            <div className="flex justify-end mt-6">
+              <Button
+                onClick={() => handleTabChange('grammar')}
+                className="flex items-center gap-2 bg-kid-blue hover:bg-blue-600"
+              >
+                Back to Start: Grammar <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
         );
@@ -222,7 +273,7 @@ const EnglishLesson = ({ topic, content }: EnglishLessonProps) => {
         {topic}
       </h2>
 
-      <Tabs defaultValue="grammar" className="w-full" onValueChange={setActiveTab}>
+      <Tabs defaultValue="grammar" className="w-full" onValueChange={setActiveTab} value={activeTab}>
         <TabsList className="grid grid-cols-4 mb-6">
           <TabsTrigger value="grammar" className="flex items-center gap-2">
             <BookOpen className="w-4 h-4" />

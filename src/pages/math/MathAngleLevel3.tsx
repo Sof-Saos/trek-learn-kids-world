@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
@@ -17,50 +17,48 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question: "¿Cómo se llama un ángulo que mide 90°?",
-    options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso"],
-    correctAnswer: "Ángulo recto"
-  },
-  {
-    id: 2,
-    question: "¿Cuál ángulo es menor que 90°?",
-    options: ["Ángulo obtuso", "Ángulo recto", "Ángulo agudo"],
-    correctAnswer: "Ángulo agudo"
-  },
-  {
-    id: 3,
-    question: "¿Cuántos grados tiene un ángulo llano?",
-    options: ["180°", "90°", "360°"],
-    correctAnswer: "180°"
-  },
-  {
-    id: 4,
-    question: "¿Cómo se llama un ángulo mayor de 90° pero menor de 180°?",
-    options: ["Ángulo agudo", "Ángulo obtuso", "Ángulo reflejo"],
+    question: "El ángulo mostrado mide 120°. ¿Qué tipo de ángulo es?",
+    image: "angle-120-degrees.png", // Placeholder for the image
+    options: ["Ángulo obtuso", "Ángulo agudo", "Ángulo recto"],
     correctAnswer: "Ángulo obtuso"
   },
   {
+    id: 2,
+    question: "Compara estos dos ángulos: uno mide 45° y el otro 135°. ¿Cuál afirmación es correcta?",
+    image: "angle-comparison.png", // Placeholder for the image
+    options: ["45° > 135°", "45° = 135°", "45° < 135°"],
+    correctAnswer: "45° < 135°"
+  },
+  {
+    id: 3,
+    question: "Un ángulo se mide como 270°. ¿Qué tipo de ángulo es?",
+    image: "angle-270-degrees.png", // Placeholder for the image
+    options: ["Ángulo recto", "Ángulo reflejo", "Ángulo llano"],
+    correctAnswer: "Ángulo reflejo"
+  },
+  {
+    id: 4,
+    question: "Si sumas un ángulo de 60° y otro de 30°, ¿cuál es la medida del ángulo resultante?",
+    image: "angle-addition.png", // Placeholder for the image
+    options: ["90°", "120°", "45°"],
+    correctAnswer: "90°"
+  },
+  {
     id: 5,
-    question: "¿Cuál de estos NO es un ángulo?",
-    options: ["La apertura de un libro", "Una esquina de un cuadrado", "La curva de una regla"],
-    correctAnswer: "La curva de una regla"
+    question: "¿Cuál de estos pares de ángulos son suplementarios (suman 180°)?",
+    image: "angle-supplementary.png", // Placeholder for the image
+    options: ["30° y 150°", "45° y 90°", "100° y 100°"],
+    correctAnswer: "30° y 150°"
   },
 ];
 
-const MathAngleLevel1 = () => {
+const MathAngleLevel3 = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [attemptCount, setAttemptCount] = useState(0);
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Mark Angles Level 2 as available in localStorage when quiz is completed successfully
-    if (showResults && score === questions.length) {
-      localStorage.setItem('math_angles_level2_unlocked', 'true');
-    }
-  }, [showResults, score, questions.length]);
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
@@ -125,8 +123,8 @@ const MathAngleLevel1 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Ángulos - Nivel 1</h1>
-          <p className="text-gray-700">Conociendo los ángulos</p>
+          <h1 className="text-3xl font-bold mb-2">Ángulos - Nivel 3</h1>
+          <p className="text-gray-700">Midiendo y comparando ángulos</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
@@ -141,10 +139,10 @@ const MathAngleLevel1 = () => {
                   <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-12 h-12 text-green-500" />
                   </div>
-                  <p className="text-green-600 font-bold text-lg">¡Puntuación Perfecta! ¡Has desbloqueado el Nivel 2!</p>
+                  <p className="text-green-600 font-bold text-lg">¡Felicidades! ¡Has dominado todos los niveles de ángulos!</p>
                 </div>
               ) : (
-                <p className="mb-6">Sigue practicando - ¡lo estás haciendo muy bien!</p>
+                <p className="mb-6">Sigue practicando - ¡estás progresando muy bien!</p>
               )}
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
@@ -158,13 +156,6 @@ const MathAngleLevel1 = () => {
                     Volver a la Ruta
                   </Button>
                 </Link>
-                {score === questions.length && (
-                  <Link to="/matematicas/angulos/2">
-                    <Button className="kid-button bg-kid-green">
-                      Ir al Nivel 2
-                    </Button>
-                  </Link>
-                )}
               </div>
             </div>
           ) : (
@@ -175,22 +166,18 @@ const MathAngleLevel1 = () => {
                     Pregunta {currentQuestion + 1} de {questions.length}
                   </span>
                   <span className="text-sm text-gray-500">
-                    Nivel 1 · Básico
+                    Nivel 3 · Avanzado
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold mb-4">
                   {questions[currentQuestion].question}
                 </h2>
                 
-                {questions[currentQuestion].image && (
-                  <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-                    <img 
-                      src={questions[currentQuestion].image} 
-                      alt="Imagen del ángulo"
-                      className="max-h-full"
-                    />
-                  </div>
-                )}
+                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+                  <p className="text-gray-500">
+                    La imagen del ángulo se mostrará aquí
+                  </p>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 gap-3 mb-6">
@@ -200,7 +187,7 @@ const MathAngleLevel1 = () => {
                     onClick={() => handleAnswerSelect(option)}
                     className={`p-4 text-lg font-medium rounded-xl transition-all ${
                       selectedAnswer === option
-                        ? 'bg-kid-green text-white'
+                        ? 'bg-kid-purple text-white'
                         : 'bg-gray-100 hover:bg-gray-200'
                     }`}
                   >
@@ -212,9 +199,9 @@ const MathAngleLevel1 = () => {
               {attemptCount > 0 && (
                 <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-center">
                   <p className="text-green-700">
-                    {attemptCount === 1 ? "Intenta de nuevo. ¡Tú puedes!" : 
-                     attemptCount === 2 ? "Revisa las opciones con cuidado." : 
-                     "Pista: Recuerda lo que has aprendido sobre los ángulos."}
+                    {attemptCount === 1 ? "¡Sigue intentándolo!" : 
+                     attemptCount === 2 ? "Recuerda las propiedades de los ángulos." : 
+                     "Pista: Observa con cuidado la medida del ángulo."}
                   </p>
                 </div>
               )}
@@ -222,7 +209,7 @@ const MathAngleLevel1 = () => {
               <div className="flex justify-center">
                 <Button 
                   onClick={handleSubmit}
-                  className="kid-button bg-kid-green"
+                  className="kid-button bg-kid-purple"
                 >
                   Enviar respuesta
                 </Button>
@@ -235,4 +222,4 @@ const MathAngleLevel1 = () => {
   );
 };
 
-export default MathAngleLevel1;
+export default MathAngleLevel3;

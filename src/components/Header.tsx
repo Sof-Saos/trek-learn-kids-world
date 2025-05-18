@@ -20,7 +20,7 @@ const Header = () => {
               <Home className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-kid-purple to-kid-pink bg-clip-text text-transparent">
-              LearnTrek
+              didaktik
             </h1>
           </Link>
           

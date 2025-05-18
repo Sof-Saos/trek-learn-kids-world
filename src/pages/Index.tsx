@@ -11,7 +11,7 @@ const Index = () => {
       
       <main className="kid-container">
         <div className="text-center mb-12 mt-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to LearnTrek!</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to didaktik!</h1>
           <p className="text-xl text-gray-700">Let's explore and learn together!</p>
         </div>
         
@@ -68,7 +68,7 @@ const Index = () => {
 
       <footer className="mt-16 py-6 bg-white shadow-inner">
         <div className="kid-container text-center">
-          <p className="text-gray-600">© 2025 LearnTrek - Learning made fun!</p>
+          <p className="text-gray-600">© 2025 didaktik - Learning made fun!</p>
         </div>
       </footer>
     </div>
