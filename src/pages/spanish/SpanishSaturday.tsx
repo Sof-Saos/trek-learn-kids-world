@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Campfire } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
@@ -73,7 +73,7 @@ const SpanishSaturday = () => {
         
         <SpanishLesson
           title="La Noche de Camping"
-          icon={<Campfire className="h-8 w-8 text-orange-500" />}
+          icon={<Flame className="h-8 w-8 text-orange-500" />}
           questions={campingQuestions}
           activityTitle="¡Crea una historia de camping!"
           activityDescription="Dibuja una fogata y escribe una historia corta que contarías en una noche de camping. ¿Sería una historia de miedo, de aventura o divertida?"
