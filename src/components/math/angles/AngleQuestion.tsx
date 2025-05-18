@@ -9,6 +9,7 @@ interface AngleQuestionProps {
   attemptCount: number;
   onSelectAnswer: (answer: string) => void;
   onSubmit: () => void;
+  hideImage?: boolean;
 }
 
 const AngleQuestion = ({ 
@@ -16,7 +17,8 @@ const AngleQuestion = ({
   selectedAnswer, 
   attemptCount, 
   onSelectAnswer,
-  onSubmit
+  onSubmit,
+  hideImage = false
 }: AngleQuestionProps) => {
   return (
     <>
@@ -25,19 +27,21 @@ const AngleQuestion = ({
           {question.question}
         </h2>
         
-        <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6 relative">
-          <img 
-            src="{placeholder}" 
-            alt={question.imageDescription}
-            className="max-w-full max-h-full object-contain"
-          />
-          <div className="absolute bottom-2 right-2 bg-white/70 rounded-full p-1">
-            <Info size={16} className="text-gray-500" />
+        {!hideImage && question.imageDescription && (
+          <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6 relative">
+            <img 
+              src="{placeholder}" 
+              alt={question.imageDescription}
+              className="max-w-full max-h-full object-contain"
+            />
+            <div className="absolute bottom-2 right-2 bg-white/70 rounded-full p-1">
+              <Info size={16} className="text-gray-500" />
+            </div>
+            <p className="absolute inset-0 flex items-center justify-center text-gray-500 bg-gray-100 bg-opacity-80">
+              {question.imageDescription}
+            </p>
           </div>
-          <p className="absolute inset-0 flex items-center justify-center text-gray-500 bg-gray-100 bg-opacity-80">
-            {question.imageDescription}
-          </p>
-        </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-3 mb-6">
@@ -60,7 +64,7 @@ const AngleQuestion = ({
         <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-center">
           <p className="text-green-700">
             {attemptCount === 1 ? "Intenta de nuevo. ¡Tú puedes!" : 
-             attemptCount === 2 ? "Observa con atención la imagen." : 
+             attemptCount === 2 ? "Observa con atención la pregunta." : 
              "Pista: Recuerda las características de los diferentes tipos de ángulos."}
           </p>
         </div>

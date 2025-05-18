@@ -7,9 +7,17 @@ interface ResultsCardProps {
   score: number;
   totalQuestions: number;
   onReset: () => void;
+  nextLevelPath?: string;
+  nextLevelText?: string;
 }
 
-const ResultsCard = ({ score, totalQuestions, onReset }: ResultsCardProps) => {
+const ResultsCard = ({ 
+  score, 
+  totalQuestions, 
+  onReset,
+  nextLevelPath = "/matematicas/angulos/3",
+  nextLevelText = "Ir al Nivel 3"
+}: ResultsCardProps) => {
   return (
     <div className="text-center">
       <h2 className="text-2xl font-bold mb-4">¡Cuestionario Completo!</h2>
@@ -22,12 +30,12 @@ const ResultsCard = ({ score, totalQuestions, onReset }: ResultsCardProps) => {
             <Check className="w-12 h-12 text-green-500" />
           </div>
           <p className="text-green-600 font-bold text-lg">
-            ¡Excelente trabajo identificando ángulos en objetos cotidianos!
+            ¡Excelente trabajo identificando ángulos!
           </p>
         </div>
       ) : (
         <p className="mb-6">
-          Sigue practicando para mejorar tu habilidad de identificar ángulos.
+          Sigue practicando para mejorar tu conocimiento sobre ángulos.
         </p>
       )}
       <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -42,11 +50,13 @@ const ResultsCard = ({ score, totalQuestions, onReset }: ResultsCardProps) => {
             Volver a la Ruta
           </Button>
         </Link>
-        <Link to="/matematicas/angulos/3">
-          <Button className="kid-button bg-kid-purple">
-            Ir al Nivel 3
-          </Button>
-        </Link>
+        {nextLevelPath && (
+          <Link to={nextLevelPath}>
+            <Button className="kid-button bg-kid-purple">
+              {nextLevelText}
+            </Button>
+          </Link>
+        )}
       </div>
     </div>
   );
