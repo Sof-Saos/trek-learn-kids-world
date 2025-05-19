@@ -9,8 +9,6 @@ import { useToast } from '@/components/ui/use-toast';
 interface Question {
   id: number;
   question: string;
-  image?: string;
-  imageDescription: string;
   options: string[];
   correctAnswer: string;
 }
@@ -18,38 +16,33 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question: "El ángulo mostrado mide 120°. ¿Qué tipo de ángulo es?",
-    imageDescription: "Imagen de un ángulo de 120 grados",
-    options: ["Ángulo obtuso", "Ángulo agudo", "Ángulo recto"],
-    correctAnswer: "Ángulo obtuso"
-  },
-  {
-    id: 2,
-    question: "Compara estos dos ángulos: uno mide 45° y el otro 135°. ¿Cuál afirmación es correcta?",
-    imageDescription: "Imagen con dos ángulos: uno de 45° y otro de 135°",
-    options: ["45° > 135°", "45° = 135°", "45° < 135°"],
-    correctAnswer: "45° < 135°"
-  },
-  {
-    id: 3,
-    question: "Un ángulo se mide como 270°. ¿Qué tipo de ángulo es?",
-    imageDescription: "Imagen de un ángulo de 270 grados",
-    options: ["Ángulo recto", "Ángulo reflejo", "Ángulo llano"],
-    correctAnswer: "Ángulo reflejo"
-  },
-  {
-    id: 4,
-    question: "Si sumas un ángulo de 60° y otro de 30°, ¿cuál es la medida del ángulo resultante?",
-    imageDescription: "Imagen mostrando la suma de un ángulo de 60° y otro de 30°",
-    options: ["90°", "120°", "45°"],
+    question: "Si un ángulo recto mide 90°, ¿cuántos grados faltan para formar un ángulo llano?",
+    options: ["45°", "90°", "180°", "270°"],
     correctAnswer: "90°"
   },
   {
+    id: 2,
+    question: "Las manecillas de un reloj forman un ángulo de 90° a las 3:00. ¿Qué tipo de ángulo forman a las 4:00?",
+    options: ["Agudo", "Recto", "Obtuso", "Llano"],
+    correctAnswer: "Obtuso"
+  },
+  {
+    id: 3,
+    question: "Un triángulo rectángulo tiene un ángulo de 90° y otro de 30°. ¿Cuántos grados mide el tercer ángulo?",
+    options: ["60°", "90°", "120°", "150°"],
+    correctAnswer: "60°"
+  },
+  {
+    id: 4,
+    question: "Una señal de tránsito en forma de triángulo equilátero tiene tres ángulos iguales. ¿Cuánto mide cada ángulo?",
+    options: ["45°", "60°", "90°", "120°"],
+    correctAnswer: "60°"
+  },
+  {
     id: 5,
-    question: "¿Cuál de estos pares de ángulos son suplementarios (suman 180°)?",
-    imageDescription: "Imagen mostrando diferentes pares de ángulos",
-    options: ["30° y 150°", "45° y 90°", "100° y 100°"],
-    correctAnswer: "30° y 150°"
+    question: "En una hoja doblada por la mitad, se forma un ángulo de 180°. ¿Qué tipo de ángulo es?",
+    options: ["Agudo", "Recto", "Obtuso", "Llano"],
+    correctAnswer: "Llano"
   },
 ];
 
@@ -124,8 +117,8 @@ const MathAngleLevel3 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Medición y comparación de ángulos</h1>
-          <p className="text-gray-700">Aprende a medir y comparar diferentes tipos de ángulos</p>
+          <h1 className="text-3xl font-bold mb-2">Usando los ángulos en contextos reales</h1>
+          <p className="text-gray-700">Aplica tu conocimiento sobre ángulos en situaciones cotidianas</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
@@ -143,7 +136,7 @@ const MathAngleLevel3 = () => {
                   <p className="text-green-600 font-bold text-lg">¡Eres un experto en ángulos! ¡Felicidades!</p>
                 </div>
               ) : (
-                <p className="mb-6">Sigue practicando para dominar la medición de ángulos.</p>
+                <p className="mb-6">Sigue practicando para dominar el uso de los ángulos en situaciones reales.</p>
               )}
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
@@ -174,17 +167,6 @@ const MathAngleLevel3 = () => {
                   {questions[currentQuestion].question}
                 </h2>
                 
-                <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-                  <img 
-                    src="{placeholder}" 
-                    alt={questions[currentQuestion].imageDescription}
-                    className="max-h-full"
-                  />
-                  <p className="text-center text-gray-500 text-sm mt-1">
-                    {questions[currentQuestion].imageDescription}
-                  </p>
-                </div>
-                
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-md">
                   <div className="flex">
                     <div className="flex-shrink-0">
@@ -194,7 +176,7 @@ const MathAngleLevel3 = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-blue-700">
-                        Recuerda: Los ángulos se miden en grados (°) y pueden compararse por su tamaño.
+                        Recuerda: Los ángulos se aplican en muchos contextos de la vida diaria y en la geometría.
                       </p>
                     </div>
                   </div>
@@ -220,9 +202,9 @@ const MathAngleLevel3 = () => {
               {attemptCount > 0 && (
                 <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-center">
                   <p className="text-green-700">
-                    {attemptCount === 1 ? "Intenta de nuevo. Piensa en la medida de los ángulos." : 
-                     attemptCount === 2 ? "Recuerda cómo se clasifican los ángulos según sus grados." : 
-                     "Pista: Observa cuidadosamente la medida en grados de cada ángulo."}
+                    {attemptCount === 1 ? "Intenta de nuevo. Piensa en las propiedades de los ángulos." : 
+                     attemptCount === 2 ? "Recuerda los conceptos básicos sobre ángulos y triángulos." : 
+                     "Pista: Piensa en la suma de los ángulos internos y las características específicas de cada figura."}
                   </p>
                 </div>
               )}
