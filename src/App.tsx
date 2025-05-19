@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import Math from "./pages/Math";
 import MathPath from "./pages/math/MathPath";
 import MathAngleLevel1 from "./pages/math/MathAngleLevel1";
+import MathAngleLevel2 from "./pages/math/MathAngleLevel2";
+import MathAngleLevel3 from "./pages/math/MathAngleLevel3";
 import MathFractionLevel1 from "./pages/math/MathFractionLevel1";
 import MathFractionLevel2 from "./pages/math/MathFractionLevel2";
 import MathFractionLevel3 from "./pages/math/MathFractionLevel3";
@@ -54,6 +56,8 @@ const App = () => (
           <Route path="/matematicas" element={<MathPath />} />
           <Route path="/matematicas/antiguo" element={<Math />} />
           <Route path="/matematicas/angulos/1" element={<MathAngleLevel1 />} />
+          <Route path="/matematicas/angulos/2" element={<MathAngleLevel2 />} />
+          <Route path="/matematicas/angulos/3" element={<MathAngleLevel3 />} />
           <Route path="/matematicas/fracciones/1" element={<MathFractionLevel1 />} />
           <Route path="/matematicas/fracciones/2" element={<MathFractionLevel2 />} />
           <Route path="/matematicas/fracciones/3" element={<MathFractionLevel3 />} />
@@ -86,6 +90,8 @@ const App = () => (
           <Route path="/math" element={<MathPath />} />
           <Route path="/math/old" element={<Math />} />
           <Route path="/math/angles/1" element={<MathAngleLevel1 />} />
+          <Route path="/math/angles/2" element={<MathAngleLevel2 />} />
+          <Route path="/math/angles/3" element={<MathAngleLevel3 />} />
           <Route path="/math/fractions/1" element={<MathFractionLevel1 />} />
           <Route path="/math/fractions/2" element={<MathFractionLevel2 />} />
           <Route path="/math/fractions/3" element={<MathFractionLevel3 />} />
