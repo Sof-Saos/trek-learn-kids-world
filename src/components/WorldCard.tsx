@@ -20,13 +20,13 @@ const WorldCard = ({ title, icon, description, to, bgClass, character }: WorldCa
           <span className="text-lg">{title}</span>
         </button>
         
+        <p className="mt-4 text-sm text-center font-medium">{description}</p>
+        
         {character && (
-          <div className="absolute -bottom-6 -right-2 character">
+          <div className="mt-2 character">
             {character}
           </div>
         )}
-        
-        <p className="mt-4 text-sm text-center font-medium">{description}</p>
       </div>
     </Link>
   );
