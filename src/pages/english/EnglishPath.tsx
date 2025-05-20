@@ -1,123 +1,101 @@
 
 import Header from '@/components/Header';
-import PathView, { LessonNode } from '@/components/PathView';
-import { Users, Home, Smile, Cat, School, BookOpen } from 'lucide-react';
-
-// Updated nodes with topics as separate lessons
-const englishNodes: LessonNode[] = [
-  // Family
-  {
-    id: 'family',
-    title: 'Family',
-    description: 'Learn vocabulary related to family members',
-    status: 'available',
-    to: '/ingles/familia',
-  },
-  
-  // School
-  {
-    id: 'school',
-    title: 'School',
-    description: 'Vocabulary and expressions related to school',
-    status: 'available',
-    to: '/ingles/escuela',
-  },
-  
-  // Animals
-  {
-    id: 'animals',
-    title: 'Animals',
-    description: 'Learn about different animals and their characteristics',
-    status: 'available',
-    to: '/ingles/animales',
-  },
-  
-  // House
-  {
-    id: 'house',
-    title: 'House',
-    description: 'Discover words for different rooms and objects in a house',
-    status: 'available',
-    to: '/ingles/casa',
-  },
-  
-  // Body
-  {
-    id: 'body',
-    title: 'Body',
-    description: 'Learn to name different parts of the body',
-    status: 'available',
-    to: '/ingles/cuerpo',
-  },
-  
-  // Emotions
-  {
-    id: 'emotions',
-    title: 'Emotions',
-    description: 'Understand and express different feelings',
-    status: 'available',
-    to: '/ingles/emociones',
-  },
-];
+import PathView from '@/components/PathView';
+import { LessonNode } from '@/components/PathView';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, Sparkles, Star } from 'lucide-react';
+import Character from '@/components/Character';
 
 const EnglishPath = () => {
+  const englishLessons: LessonNode[] = [
+    {
+      id: 'family',
+      title: 'My Family',
+      description: 'Learn words about family members',
+      status: 'available',
+      to: '/ingles/familia',
+      level: 1
+    },
+    {
+      id: 'school',
+      title: 'At School',
+      description: 'Learn vocabulary related to school',
+      status: 'available',
+      to: '/ingles/escuela',
+      level: 1
+    },
+    {
+      id: 'animals',
+      title: 'Animals',
+      description: 'Learn names of animals in English',
+      status: 'locked',
+      to: '/ingles/animales',
+      level: 1
+    },
+    {
+      id: 'house',
+      title: 'My House',
+      description: 'Learn words for parts of the house and furniture',
+      status: 'locked',
+      to: '/ingles/casa',
+      level: 2
+    },
+    {
+      id: 'body',
+      title: 'My Body',
+      description: 'Learn body parts in English',
+      status: 'locked',
+      to: '/ingles/cuerpo',
+      level: 2
+    },
+    {
+      id: 'emotions',
+      title: 'Feelings',
+      description: 'Express feelings and emotions in English',
+      status: 'locked',
+      to: '/ingles/emociones',
+      level: 3
+    },
+    {
+      id: 'songs',
+      title: 'English Songs',
+      description: 'Learn English through fun songs',
+      status: 'locked',
+      to: '/ingles/canciones',
+      level: 3
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-soft-blue">
+    <div className="min-h-screen bg-gradient-to-b from-white to-soft-yellow">
       <Header />
       
-      <main className="kid-container pt-8">
-        {/* Added recommendation banner */}
-        <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
-          <p className="text-amber-700 font-medium">
-            Te recomendamos resolver primero el rompecabezas con cubos y escanear el contenido oculto en realidad aumentada antes de comenzar el cuestionario.
+      <main className="kid-container">
+        <div className="flex justify-between items-center mb-8">
+          <Link to="/" className="flex items-center text-gray-600 hover:text-gray-900">
+            <ArrowLeft className="mr-2 h-5 w-5" />
+            <span>Volver al inicio</span>
+          </Link>
+          
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-english" />
+            <h2 className="text-xl font-bold text-contrast">Mundo de Inglés</h2>
+          </div>
+        </div>
+        
+        <div className="flex flex-col items-center gap-6 mb-8">
+          <Character size="lg" icon={<Star size={32} />} />
+          <p className="text-xl text-center max-w-lg">
+            ¡Bienvenido a tu aventura en inglés! Explora un nuevo idioma mientras te diviertes.
           </p>
         </div>
         
         <PathView 
-          nodes={englishNodes} 
-          title="English Learning Path" 
-          subtitle="Explore different topics and build your English skills" 
-          pathColor="#33C3F0"
-          pathBgColor="#D3E4FD"
+          nodes={englishLessons} 
+          title="Learning Path - English" 
+          subtitle="¡Aprende inglés paso a paso!"
+          theme="english"
         />
-        
-        <div className="mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
-          <h3 className="text-2xl font-bold mb-4 text-center">English Learning Activities</h3>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
-              <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="font-bold">Grammar</h4>
-              <p className="text-sm mt-1">Learn language structures and rules</p>
-            </div>
-            
-            <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
-              <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="font-bold">Vocabulary</h4>
-              <p className="text-sm mt-1">Learn new words and their meanings</p>
-            </div>
-            
-            <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
-              <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="font-bold">Reading</h4>
-              <p className="text-sm mt-1">Read short stories and answer questions</p>
-            </div>
-            
-            <div className="activity-card p-4 bg-soft-blue rounded-xl text-center">
-              <div className="w-12 h-12 bg-kid-blue rounded-full mx-auto flex items-center justify-center mb-3">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="font-bold">Listening</h4>
-              <p className="text-sm mt-1">Listen to native speakers and understand</p>
-            </div>
-          </div>
-        </div>
       </main>
     </div>
   );

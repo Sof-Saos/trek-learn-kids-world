@@ -1,141 +1,93 @@
 
-import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
-import PathView, { LessonNode } from '@/components/PathView';
-import { Calendar, Book } from 'lucide-react';
+import PathView from '@/components/PathView';
+import { LessonNode } from '@/components/PathView';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, Book, Heart } from 'lucide-react';
+import Character from '@/components/Character';
 
 const SpanishPath = () => {
-  const [nodes, setNodes] = useState<LessonNode[]>([
-    // Monday - Day 1
+  const spanishLessons: LessonNode[] = [
     {
       id: 'monday',
-      title: 'Lunes con Timmy',
-      description: 'El primer día de Timmy en la escuela',
+      title: 'Lunes Literario',
+      description: 'Descubre historias y practica la lectura',
       status: 'available',
       to: '/espanol/lunes',
+      level: 1
     },
-    
-    // Tuesday - Day 2
     {
       id: 'tuesday',
-      title: 'Martes con Timmy',
-      description: 'El dibujo mágico',
+      title: 'Martes de Vocabulario',
+      description: 'Amplía tu vocabulario con palabras nuevas',
       status: 'available',
       to: '/espanol/martes',
+      level: 1
     },
-    
-    // Wednesday - Day 3
     {
       id: 'wednesday',
-      title: 'Miércoles con Timmy',
-      description: 'El experimento de ciencias',
-      status: 'available',
+      title: 'Miércoles de Gramática',
+      description: 'Aprende las reglas gramaticales',
+      status: 'locked',
       to: '/espanol/miercoles',
+      level: 2
     },
-    
-    // Thursday - Day 4
     {
       id: 'thursday',
-      title: 'Jueves con Timmy',
-      description: 'Mi amigo tecnológico',
-      status: 'available',
+      title: 'Jueves de Ortografía',
+      description: 'Mejora tu ortografía con ejercicios divertidos',
+      status: 'locked',
       to: '/espanol/jueves',
+      level: 2
     },
-    
-    // Friday - Day 5
     {
       id: 'friday',
-      title: 'Viernes con Timmy',
-      description: 'El Tesoro Perdido',
-      status: 'available',
+      title: 'Viernes de Expresión',
+      description: 'Practica cómo expresar tus ideas',
+      status: 'locked',
       to: '/espanol/viernes',
+      level: 3
     },
-
-    // Saturday - Day 6
     {
       id: 'saturday',
-      title: 'Sábado con Timmy',
-      description: 'La Noche de Camping',
-      status: 'available',
+      title: 'Sábado Creativo',
+      description: 'Crea tus propias historias y poemas',
+      status: 'locked',
       to: '/espanol/sabado',
-    },
-  ]);
-
-  useEffect(() => {
-    // Check localStorage for unlocked levels
-    const updateNodesStatus = () => {
-      setNodes(prevNodes => {
-        const updatedNodes = [...prevNodes];
-        
-        // Check if Tuesday is unlocked
-        if (localStorage.getItem('spanish_tuesday_unlocked') === 'true') {
-          updatedNodes[1] = { ...updatedNodes[1], status: 'available' };
-        }
-        
-        // Additional checks for other days could be added here
-        
-        return updatedNodes;
-      });
-    };
-    
-    // Update nodes when component mounts
-    updateNodesStatus();
-    
-    // Add event listener for storage changes (in case another tab updates localStorage)
-    window.addEventListener('storage', updateNodesStatus);
-    
-    return () => {
-      window.removeEventListener('storage', updateNodesStatus);
-    };
-  }, []);
+      level: 3
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-soft-orange">
       <Header />
       
-      <main className="kid-container pt-8">
-        {/* Added recommendation banner */}
-        <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
-          <p className="text-amber-700 font-medium">
-            Antes de responder el cuestionario, asegúrate de haber leído el cuento del día en la cartilla análoga.
+      <main className="kid-container">
+        <div className="flex justify-between items-center mb-8">
+          <Link to="/" className="flex items-center text-gray-600 hover:text-gray-900">
+            <ArrowLeft className="mr-2 h-5 w-5" />
+            <span>Volver al inicio</span>
+          </Link>
+          
+          <div className="flex items-center gap-2">
+            <Book className="w-6 h-6 text-language" />
+            <h2 className="text-xl font-bold text-contrast">Mundo de Español</h2>
+          </div>
+        </div>
+        
+        <div className="flex flex-col items-center gap-6 mb-8">
+          <Character size="lg" icon={<Heart size={32} />} />
+          <p className="text-xl text-center max-w-lg">
+            ¡Bienvenido al camino mágico del lenguaje! Aquí aprenderás a leer, escribir y expresarte mejor.
           </p>
         </div>
-      
-        <PathView 
-          nodes={nodes} 
-          title="Ruta de Aprendizaje de Español" 
-          subtitle="Sigue a Timmy durante su semana y aprende español" 
-          pathColor="#F97316"
-          pathBgColor="#FEC6A1"
-        />
         
-        <div className="mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
-          <div className="flex items-center justify-center mb-6 gap-4">
-            <div className="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center">
-              <Book className="w-8 h-8 text-orange-500" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold">Las Aventuras de Timmy</h3>
-              <p className="text-gray-600">Lee la historia de Timmy en tu folleto primero</p>
-            </div>
-          </div>
-          
-          <div className="bg-soft-orange p-5 rounded-xl">
-            <h4 className="font-bold text-lg mb-2 text-center">Cómo funciona:</h4>
-            <ol className="list-decimal list-inside space-y-2 text-gray-700">
-              <li>Lee la historia del día correspondiente en tu folleto impreso</li>
-              <li>Completa el cuestionario para probar tu comprensión</li>
-              <li>Desbloquea la aventura del siguiente día después de completar cada cuestionario</li>
-            </ol>
-          </div>
-          
-          <div className="mt-6 text-center">
-            <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-1 text-sm">
-              <Calendar className="w-4 h-4 mr-2" />
-              <span>Completa un día a la vez</span>
-            </div>
-          </div>
-        </div>
+        <PathView 
+          nodes={spanishLessons} 
+          title="Ruta de Aprendizaje - Español" 
+          subtitle="¡Conviértete en un maestro de las palabras!"
+          theme="language"
+        />
       </main>
     </div>
   );

@@ -75,6 +75,12 @@ export default {
 				"soft-purple": "#E5DEFF",
 				"soft-pink": "#FFDEE2",
 				"soft-blue": "#D3E4FD",
+				// Nuevos colores para la app educativa
+				"english": "#ffc63b",
+				"language": "#ff8e30", // Arreglé el #ff8e3 que parecía incompleto
+				"math": "#6ecff6",
+				"support": "#8ce0a7",
+				"contrast": "#264653",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -109,14 +115,25 @@ export default {
 				'scale-bounce': {
 					'0%, 100%': { transform: 'scale(1)' },
 					'50%': { transform: 'scale(1.05)' }
-				}
+				},
+				'wave': {
+					'0%': { transform: 'rotate(0.0deg)' },
+					'10%': { transform: 'rotate(14.0deg)' },
+					'20%': { transform: 'rotate(-8.0deg)' },
+					'30%': { transform: 'rotate(14.0deg)' },
+					'40%': { transform: 'rotate(-4.0deg)' },
+					'50%': { transform: 'rotate(10.0deg)' },
+					'60%': { transform: 'rotate(0.0deg)' },
+					'100%': { transform: 'rotate(0.0deg)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out',
 				'float': 'float 3s infinite ease-in-out',
-				'scale-bounce': 'scale-bounce 2s infinite ease-in-out'
+				'scale-bounce': 'scale-bounce 2s infinite ease-in-out',
+				'wave': 'wave 2s infinite',
 			}
 		}
 	},
