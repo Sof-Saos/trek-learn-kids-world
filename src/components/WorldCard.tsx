@@ -23,7 +23,7 @@ const WorldCard = ({ title, icon, description, to, bgClass, character }: WorldCa
         <p className="mt-4 text-sm text-center font-medium">{description}</p>
         
         {character && (
-          <div className="mt-2 character">
+          <div className="mt-4 character">
             {character}
           </div>
         )}

@@ -27,7 +27,7 @@ const Index = () => {
             icon={<Calculator className="w-10 h-10" />} 
             bgClass="world-math" 
             to="/matematicas"
-            character={<Character icon={<Trophy size={24} />} />}
+            character={<Character icon={<Trophy size={24} />} color="bg-math" />}
           />
           
           <WorldCard 
@@ -36,7 +36,7 @@ const Index = () => {
             icon={<Book className="w-10 h-10" />} 
             bgClass="world-language" 
             to="/espanol"
-            character={<Character icon={<Heart size={24} />} />}
+            character={<Character icon={<Heart size={24} />} color="bg-language" />}
           />
           
           <WorldCard 
@@ -45,7 +45,7 @@ const Index = () => {
             icon={<Sparkles className="w-10 h-10" />} 
             bgClass="world-english" 
             to="/ingles"
-            character={<Character icon={<Star size={24} />} />}
+            character={<Character icon={<Star size={24} />} color="bg-english" />}
           />
         </div>
 
