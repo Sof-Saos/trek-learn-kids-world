@@ -28,7 +28,7 @@ const EnglishPath = () => {
       id: 'animals',
       title: 'Animals',
       description: 'Learn names of animals in English',
-      status: 'locked',
+      status: 'available',
       to: '/ingles/animales',
       level: 1
     },
@@ -36,7 +36,7 @@ const EnglishPath = () => {
       id: 'house',
       title: 'My House',
       description: 'Learn words for parts of the house and furniture',
-      status: 'locked',
+      status: 'available',
       to: '/ingles/casa',
       level: 2
     },
@@ -44,7 +44,7 @@ const EnglishPath = () => {
       id: 'body',
       title: 'My Body',
       description: 'Learn body parts in English',
-      status: 'locked',
+      status: 'available',
       to: '/ingles/cuerpo',
       level: 2
     },
@@ -52,7 +52,7 @@ const EnglishPath = () => {
       id: 'emotions',
       title: 'Feelings',
       description: 'Express feelings and emotions in English',
-      status: 'locked',
+      status: 'available',
       to: '/ingles/emociones',
       level: 3
     },
@@ -60,7 +60,7 @@ const EnglishPath = () => {
       id: 'songs',
       title: 'English Songs',
       description: 'Learn English through fun songs',
-      status: 'locked',
+      status: 'available',
       to: '/ingles/canciones',
       level: 3
     }

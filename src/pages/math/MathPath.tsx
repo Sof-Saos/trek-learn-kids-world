@@ -29,7 +29,7 @@ const MathPath = () => {
       id: 'angles-3',
       title: 'Ángulos en contextos reales',
       description: 'Resuelve problemas usando ángulos',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/angulos/3',
       level: 3,
       icon: <Triangle className="w-6 h-6" />
@@ -46,7 +46,7 @@ const MathPath = () => {
       id: 'fractions-2',
       title: 'Operaciones con fracciones',
       description: 'Suma, resta, multiplicación y división de fracciones',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/fracciones/2',
       level: 2
     },
@@ -54,7 +54,7 @@ const MathPath = () => {
       id: 'fractions-3',
       title: 'Fracciones en problemas',
       description: 'Aplica las fracciones para resolver problemas',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/fracciones/3',
       level: 3
     },
@@ -62,7 +62,7 @@ const MathPath = () => {
       id: 'mult-div-1',
       title: 'Multiplicación y división',
       description: 'Aprende las tablas de multiplicar',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/mult-div/1',
       level: 1,
       icon: <Divide className="w-6 h-6" />
@@ -71,7 +71,7 @@ const MathPath = () => {
       id: 'mult-div-2',
       title: 'Operaciones avanzadas',
       description: 'Multiplica y divide números más grandes',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/mult-div/2',
       level: 2,
       icon: <Divide className="w-6 h-6" />
@@ -80,7 +80,7 @@ const MathPath = () => {
       id: 'mult-div-3',
       title: 'Problemas de multiplicación',
       description: 'Resuelve problemas usando multiplicación y división',
-      status: 'locked',
+      status: 'available',
       to: '/matematicas/mult-div/3',
       level: 3,
       icon: <Divide className="w-6 h-6" />

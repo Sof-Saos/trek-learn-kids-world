@@ -28,7 +28,7 @@ const SpanishPath = () => {
       id: 'wednesday',
       title: 'Miércoles de Gramática',
       description: 'Aprende las reglas gramaticales',
-      status: 'locked',
+      status: 'available',
       to: '/espanol/miercoles',
       level: 2
     },
@@ -36,7 +36,7 @@ const SpanishPath = () => {
       id: 'thursday',
       title: 'Jueves de Ortografía',
       description: 'Mejora tu ortografía con ejercicios divertidos',
-      status: 'locked',
+      status: 'available',
       to: '/espanol/jueves',
       level: 2
     },
@@ -44,7 +44,7 @@ const SpanishPath = () => {
       id: 'friday',
       title: 'Viernes de Expresión',
       description: 'Practica cómo expresar tus ideas',
-      status: 'locked',
+      status: 'available',
       to: '/espanol/viernes',
       level: 3
     },
@@ -52,7 +52,7 @@ const SpanishPath = () => {
       id: 'saturday',
       title: 'Sábado Creativo',
       description: 'Crea tus propias historias y poemas',
-      status: 'locked',
+      status: 'available',
       to: '/espanol/sabado',
       level: 3
     }
