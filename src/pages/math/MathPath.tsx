@@ -4,6 +4,8 @@ import PathView from '@/components/PathView';
 import { LessonNode } from '@/components/PathView';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calculator, Triangle, Divide } from 'lucide-react';
+import Character from '@/components/Character';
+import { Trophy } from 'lucide-react';
 
 const MathPath = () => {
   const mathLessons: LessonNode[] = [
@@ -13,8 +15,7 @@ const MathPath = () => {
       description: 'Aprende a identificar diferentes tipos de ángulos',
       status: 'completed',
       to: '/matematicas/angulos/1',
-      level: 1,
-      icon: <Triangle className="w-6 h-6" />
+      level: 1
     },
     {
       id: 'angles-2',
@@ -22,8 +23,7 @@ const MathPath = () => {
       description: 'Identifica ángulos en objetos de la vida cotidiana',
       status: 'available',
       to: '/matematicas/angulos/2',
-      level: 2,
-      icon: <Triangle className="w-6 h-6" />
+      level: 2
     },
     {
       id: 'angles-3',
@@ -31,8 +31,7 @@ const MathPath = () => {
       description: 'Resuelve problemas usando ángulos',
       status: 'available',
       to: '/matematicas/angulos/3',
-      level: 3,
-      icon: <Triangle className="w-6 h-6" />
+      level: 3
     },
     {
       id: 'fractions-1',
@@ -64,8 +63,7 @@ const MathPath = () => {
       description: 'Aprende las tablas de multiplicar',
       status: 'available',
       to: '/matematicas/mult-div/1',
-      level: 1,
-      icon: <Divide className="w-6 h-6" />
+      level: 1
     },
     {
       id: 'mult-div-2',
@@ -73,8 +71,7 @@ const MathPath = () => {
       description: 'Multiplica y divide números más grandes',
       status: 'available',
       to: '/matematicas/mult-div/2',
-      level: 2,
-      icon: <Divide className="w-6 h-6" />
+      level: 2
     },
     {
       id: 'mult-div-3',
@@ -82,8 +79,7 @@ const MathPath = () => {
       description: 'Resuelve problemas usando multiplicación y división',
       status: 'available',
       to: '/matematicas/mult-div/3',
-      level: 3,
-      icon: <Divide className="w-6 h-6" />
+      level: 3
     }
   ];
 
@@ -102,6 +98,13 @@ const MathPath = () => {
             <Calculator className="w-6 h-6 text-math" />
             <h2 className="text-xl font-bold text-contrast">Mundo de Matemáticas</h2>
           </div>
+        </div>
+        
+        <div className="flex flex-col items-center gap-6 mb-8">
+          <Character size="lg" icon={<Trophy size={32} />} color="bg-math" />
+          <p className="text-xl text-center max-w-lg">
+            ¡Bienvenido al mundo de los números! Aquí aprenderás a contar, calcular y resolver problemas matemáticos.
+          </p>
         </div>
         
         <PathView 
