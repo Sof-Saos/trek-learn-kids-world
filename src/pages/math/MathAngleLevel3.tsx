@@ -5,44 +5,48 @@ import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Check } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { Question } from '@/components/math/angles/types';
 
-interface Question {
-  id: number;
-  question: string;
-  options: string[];
-  correctAnswer: string;
-}
-
-const questions: Question[] = [
+const angleProblems: Question[] = [
   {
     id: 1,
-    question: "Si un ángulo recto mide 90°, ¿cuántos grados faltan para formar un ángulo llano?",
-    options: ["45°", "90°", "180°", "270°"],
-    correctAnswer: "90°"
+    image_url: "",
+    question: "Un ángulo de 27° quiere convertirse en un ángulo llano. ¿Cuántos grados le faltan?",
+    imageDescription: "",
+    options: ["90°", "153°", "63°", "180°"],
+    correctAnswer: "153°"
   },
   {
     id: 2,
-    question: "Las manecillas de un reloj forman un ángulo de 90° a las 3:00. ¿Qué tipo de ángulo forman a las 4:00?",
+    image_url: "",
+    question: "Si un ángulo recto mide 90°, ¿cuánto mide la mitad de un ángulo recto?",
+    imageDescription: "",
+    options: ["30°", "45°", "60°", "180°"],
+    correctAnswer: "45°"
+  },
+  {
+    id: 3,
+    image_url: "",
+    question: "Un ángulo mide 135°. ¿Qué tipo de ángulo es?",
+    imageDescription: "",
     options: ["Agudo", "Recto", "Obtuso", "Llano"],
     correctAnswer: "Obtuso"
   },
   {
-    id: 3,
-    question: "Un triángulo rectángulo tiene un ángulo de 90° y otro de 30°. ¿Cuántos grados mide el tercer ángulo?",
-    options: ["60°", "90°", "120°", "150°"],
-    correctAnswer: "60°"
-  },
-  {
     id: 4,
-    question: "Una señal de tránsito en forma de triángulo equilátero tiene tres ángulos iguales. ¿Cuánto mide cada ángulo?",
-    options: ["45°", "60°", "90°", "120°"],
-    correctAnswer: "60°"
+    image_url: "",
+    question: "¿Cuántos grados más necesita un ángulo de 80° para volverse un ángulo recto?",
+    imageDescription: "",
+    options: ["20°", "10°", "15°", "5°"],
+    correctAnswer: "10°"
   },
   {
     id: 5,
-    question: "En una hoja doblada por la mitad, se forma un ángulo de 180°. ¿Qué tipo de ángulo es?",
-    options: ["Agudo", "Recto", "Obtuso", "Llano"],
-    correctAnswer: "Llano"
+    image_url: "",
+    question: "Un ángulo llano mide 180°. Si ya tienes un ángulo de 90°, ¿cuántos grados faltan para que sea llano?",
+    imageDescription: "",
+    options: ["45°", "60°", "90°", "180°"],
+    correctAnswer: "90°"
   },
 ];
 
@@ -68,7 +72,7 @@ const MathAngleLevel3 = () => {
       return;
     }
 
-    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+    if (selectedAnswer === angleProblems[currentQuestion].correctAnswer) {
       setScore(score + 1);
       toast({
         title: "¡Correcto!",
@@ -77,7 +81,7 @@ const MathAngleLevel3 = () => {
       });
       
       // Move to next question or show results
-      if (currentQuestion < questions.length - 1) {
+      if (currentQuestion < angleProblems.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
         setAttemptCount(0);
@@ -117,8 +121,8 @@ const MathAngleLevel3 = () => {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Usando los ángulos en contextos reales</h1>
-          <p className="text-gray-700">Aplica tu conocimiento sobre ángulos en situaciones cotidianas</p>
+          <h1 className="text-3xl font-bold mb-2">Problemas con ángulos</h1>
+          <p className="text-gray-700">Resuelve problemas basados en las propiedades de los ángulos</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
@@ -126,17 +130,17 @@ const MathAngleLevel3 = () => {
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4">¡Cuestionario Completo!</h2>
               <p className="text-xl mb-4">
-                Tu puntuación: {score} de {questions.length}
+                Tu puntuación: {score} de {angleProblems.length}
               </p>
-              {score === questions.length ? (
+              {score === angleProblems.length ? (
                 <div className="mb-6">
                   <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-12 h-12 text-green-500" />
                   </div>
-                  <p className="text-green-600 font-bold text-lg">¡Eres un experto en ángulos! ¡Felicidades!</p>
+                  <p className="text-green-600 font-bold text-lg">¡Eres un experto resolviendo problemas con ángulos! ¡Felicidades!</p>
                 </div>
               ) : (
-                <p className="mb-6">Sigue practicando para dominar el uso de los ángulos en situaciones reales.</p>
+                <p className="mb-6">Sigue practicando para mejorar tu habilidad con los problemas de ángulos.</p>
               )}
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
@@ -157,14 +161,14 @@ const MathAngleLevel3 = () => {
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm text-gray-500">
-                    Pregunta {currentQuestion + 1} de {questions.length}
+                    Pregunta {currentQuestion + 1} de {angleProblems.length}
                   </span>
                   <span className="text-sm text-gray-500">
                     Nivel 3 · Avanzado
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold mb-4">
-                  {questions[currentQuestion].question}
+                  {angleProblems[currentQuestion].question}
                 </h2>
                 
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 rounded-md">
@@ -176,7 +180,7 @@ const MathAngleLevel3 = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-blue-700">
-                        Recuerda: Los ángulos se aplican en muchos contextos de la vida diaria y en la geometría.
+                        Recuerda: Un ángulo llano mide 180°, un ángulo recto mide 90°, los ángulos agudos son menores a 90° y los obtusos son mayores a 90° pero menores a 180°.
                       </p>
                     </div>
                   </div>
@@ -184,7 +188,7 @@ const MathAngleLevel3 = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-3 mb-6">
-                {questions[currentQuestion].options.map((option) => (
+                {angleProblems[currentQuestion].options.map((option) => (
                   <button
                     key={option}
                     onClick={() => handleAnswerSelect(option)}
@@ -203,8 +207,8 @@ const MathAngleLevel3 = () => {
                 <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-center">
                   <p className="text-green-700">
                     {attemptCount === 1 ? "Intenta de nuevo. Piensa en las propiedades de los ángulos." : 
-                     attemptCount === 2 ? "Recuerda los conceptos básicos sobre ángulos y triángulos." : 
-                     "Pista: Piensa en la suma de los ángulos internos y las características específicas de cada figura."}
+                     attemptCount === 2 ? "Recuerda cómo calcular ángulos complementarios y suplementarios." : 
+                     "Pista: Para calcular el ángulo faltante, resta el ángulo dado del ángulo total que necesitas formar."}
                   </p>
                 </div>
               )}
