@@ -38,7 +38,7 @@ const SpanishPath = () => {
       description: 'Mejora tu ortografía con ejercicios divertidos',
       status: 'available',
       to: '/espanol/jueves',
-      level: 4
+      level: 3
     },
     {
       id: 'friday',
@@ -46,7 +46,7 @@ const SpanishPath = () => {
       description: 'Practica cómo expresar tus ideas',
       status: 'available',
       to: '/espanol/viernes',
-      level: 5
+      level: 3
     }
   ];
 
