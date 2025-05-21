@@ -22,7 +22,7 @@ const SpanishPath = () => {
       description: 'Amplía tu vocabulario con palabras nuevas',
       status: 'available',
       to: '/espanol/martes',
-      level: 1
+      level: 2
     },
     {
       id: 'wednesday',
@@ -30,7 +30,7 @@ const SpanishPath = () => {
       description: 'Aprende las reglas gramaticales',
       status: 'available',
       to: '/espanol/miercoles',
-      level: 2
+      level: 3
     },
     {
       id: 'thursday',
@@ -38,7 +38,7 @@ const SpanishPath = () => {
       description: 'Mejora tu ortografía con ejercicios divertidos',
       status: 'available',
       to: '/espanol/jueves',
-      level: 2
+      level: 4
     },
     {
       id: 'friday',
@@ -46,15 +46,7 @@ const SpanishPath = () => {
       description: 'Practica cómo expresar tus ideas',
       status: 'available',
       to: '/espanol/viernes',
-      level: 3
-    },
-    {
-      id: 'saturday',
-      title: 'Sábado Creativo',
-      description: 'Crea tus propias historias y poemas',
-      status: 'available',
-      to: '/espanol/sabado',
-      level: 3
+      level: 5
     }
   ];
 
