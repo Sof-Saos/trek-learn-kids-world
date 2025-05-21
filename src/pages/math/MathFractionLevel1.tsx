@@ -53,8 +53,8 @@ const questions: Question[] = [
     id: 5,
     question: "Hay 10 globos y solo 5 son rojos. ¿Qué fracción de los globos son rojos?",
     image: "balloons",
-    options: ["1/2", "4/10", "2/10"],
-    correctAnswer: "1/2",
+    options: ["5/10", "4/10", "2/10"],
+    correctAnswer: "5/10",
     explanation: "De 10 globos totales, 5 son rojos, por lo tanto 5/10 = 1/2 son rojos."
   }
 ];

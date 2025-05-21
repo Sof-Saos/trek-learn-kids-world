@@ -4,6 +4,7 @@ import { Question } from './types';
 export const basicAngleQuestions: Question[] = [
   {
     id: 1,
+    image_url: "",
     question: "¿Cómo se llama un ángulo que mide 90°?",
     imageDescription: "", // No image needed for basic questions
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso"],
@@ -11,6 +12,7 @@ export const basicAngleQuestions: Question[] = [
   },
   {
     id: 2,
+    image_url: "",
     question: "¿Cuál ángulo es menor que 90°?",
     imageDescription: "", // No image needed for basic questions
     options: ["Ángulo obtuso", "Ángulo recto", "Ángulo agudo"],
@@ -18,6 +20,7 @@ export const basicAngleQuestions: Question[] = [
   },
   {
     id: 3,
+    image_url: "",
     question: "¿Cuántos grados tiene un ángulo llano?",
     imageDescription: "", // No image needed for basic questions
     options: ["180°", "90°", "360°"],
@@ -25,6 +28,7 @@ export const basicAngleQuestions: Question[] = [
   },
   {
     id: 4,
+    image_url: "",
     question: "¿Cómo se llama un ángulo mayor de 90° pero menor de 180°?",
     imageDescription: "", // No image needed for basic questions
     options: ["Ángulo agudo", "Ángulo obtuso", "Ángulo reflejo"],
@@ -32,6 +36,7 @@ export const basicAngleQuestions: Question[] = [
   },
   {
     id: 5,
+    image_url: "",
     question: "¿Cuál de estos NO es un ángulo?",
     imageDescription: "", // No image needed for basic questions
     options: ["La superficie de una mesa", "Una esquina de un cuadrado", "La curva de una regla"],

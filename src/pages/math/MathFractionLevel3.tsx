@@ -34,7 +34,7 @@ const questions: Question[] = [
   },
   {
     id: 3,
-    question: "¿Qué fracción es equivalente a 2/6?",
+    question: "¿Qué fracción se colorea igual a 2/6?",
     image: "equivalent1",
     options: ["1/2", "1/3", "3/6"],
     correctAnswer: "1/3",

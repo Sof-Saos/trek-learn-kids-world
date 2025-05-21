@@ -28,18 +28,18 @@ const AngleQuestion = ({
         </h2>
         
         {!hideImage && question.imageDescription && (
-          <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6 relative">
+          <div className="aspect-video rounded-lg flex items-center justify-center mb-6 relative">
             <img 
-              src="{placeholder}" 
-              alt={question.imageDescription}
+              src= {question.image_url}
+              // alt={question.imageDescription}
               className="max-w-full max-h-full object-contain"
             />
             <div className="absolute bottom-2 right-2 bg-white/70 rounded-full p-1">
               <Info size={16} className="text-gray-500" />
             </div>
-            <p className="absolute inset-0 flex items-center justify-center text-gray-500 bg-gray-100 bg-opacity-80">
+            {/* <p className="absolute inset-0 flex items-center justify-center text-gray-500 bg-gray-100 bg-opacity-80">
               {question.imageDescription}
-            </p>
+            </p> */}
           </div>
         )}
       </div>
@@ -49,7 +49,7 @@ const AngleQuestion = ({
           <button
             key={option}
             onClick={() => onSelectAnswer(option)}
-            className={`p-4 text-lg font-medium rounded-xl transition-all ${
+            className={`p-2 text-lg font-medium rounded-xl transition-all ${
               selectedAnswer === option
                 ? 'bg-kid-green text-white'
                 : 'bg-gray-100 hover:bg-gray-200'

@@ -16,33 +16,33 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question: "¿Cuál es la palabra en español para 'school'?",
-    options: ["casa", "escuela", "parque", "tienda"],
-    correctAnswer: "escuela"
+    question: "¿Qué hizo especial al dibujo de Timmy?",
+    options: ["Que lo colgó en la pared de su cuarto.", "Que su hermana también lo pintó con él", "Que comenzó a moverse y cobró vida.", "Que se lo llevó al colegio para mostrarlo"],
+    correctAnswer: "Que comenzó a moverse y cobró vida."
   },
   {
     id: 2,
-    question: "En la historia, ¿qué come Timmy para el desayuno?",
-    options: ["Cereal", "Pan tostado", "Huevos", "Panqueques"],
-    correctAnswer: "Cereal"
+    question: "¿Cómo se llamaba el dragón que dibujó Timmy?",
+    options: ["Gus", "Flamy", "Azulito", "Rayitas"],
+    correctAnswer: "Gus"
   },
   {
     id: 3,
-    question: "¿De qué color es la mochila de Timmy?",
-    options: ["Azul", "Rojo", "Verde", "Amarillo"],
-    correctAnswer: "Azul"
+    question: "¿Qué pensó Timmy que olía la cueva del dragón?",
+    options: ["A flores frescas", "A galletas recién horneadas", "A pastel de manzana", "A sopa caliente"],
+    correctAnswer: "A galletas recién horneadas"
   },
   {
     id: 4,
-    question: "¿Cómo se siente Timmy sobre su primer día de escuela?",
-    options: ["Feliz", "Triste", "Nervioso", "Enojado"],
-    correctAnswer: "Nervioso"
+    question: "¿Quién no pudo ver el dibujo moverse?",
+    options: ["La mamá de Timmy", "Su hermana", "Su papá", "Su gato"],
+    correctAnswer: "Su hermana"
   },
   {
     id: 5,
-    question: "¿A quién conoce Timmy en la escuela?",
-    options: ["Su primo", "Su amigo", "Una nueva amiga", "Su profesor"],
-    correctAnswer: "Una nueva amiga"
+    question: "¿Qué soñó Timmy esa noche?",
+    options: ["Que volaba con Gus, dejando estrellas", "Que el dragón desapareció", "Que estaba pintando más dragones", "Que se cayó dentro de la cueva"],
+    correctAnswer: "Que volaba con Gus, dejando estrellas"
   },
 ];
 

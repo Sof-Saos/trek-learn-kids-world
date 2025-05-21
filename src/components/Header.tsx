@@ -20,7 +20,7 @@ const Header = () => {
               <School className="w-6 h-6 text-white animate-wave" />
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-kid-purple via-kid-blue to-kid-green bg-clip-text text-transparent">
-              didaktik
+              didactik
             </h1>
           </Link>
           
