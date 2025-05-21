@@ -14,7 +14,7 @@ const Index = () => {
         <div className="text-center mb-12 mt-8">
           <div className="flex justify-center items-center gap-2 mb-4">
             <Star className="w-6 h-6 text-english animate-bounce-subtle" />
-            <h1 className="text-4xl md:text-5xl font-bold">¡Bienvenido a didaktik!</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">¡Bienvenido a didactik!</h1>
             <Star className="w-6 h-6 text-english animate-bounce-subtle" />
           </div>
           <p className="text-xl text-gray-700">¡Explora y aprende jugando!</p>
