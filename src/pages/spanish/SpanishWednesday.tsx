@@ -1,60 +1,65 @@
 
 import React from 'react';
-import { FlaskConical } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
 const SpanishWednesday = () => {
-  const scienceQuestions = [
+  const robotQuestions = [
     {
       id: 1,
-      question: "¿Por qué Timmy y Laura usaron guantes y gafas durante el experimento?",
+      question: "¿Por qué Timmy dice que Robi es un gran amigo?",
       options: [
-        { id: "A", text: "Porque querían parecerse a los bomberos" },
-        { id: "B", text: "Porque iban a limpiar la clase" },
-        { id: "C", text: "Porque necesitaban protegerse durante el experimento" },
+        { id: "A", text: "Porque le ayuda a hacer travesuras" },
+        { id: "B", text: "Porque Robi hace su tarea por él" },
+        { id: "C", text: "Porque aprenden y se divierten juntos" },
+        { id: "D", text: "Porque siempre está callado" },
       ],
       correctAnswer: "C",
     },
     {
       id: 2,
-      question: "¿Qué sucede cuando se mezcla vinagre con bicarbonato de sodio?",
+      question: "¿Qué hizo Timmy primero con las piezas del robot?",
       options: [
-        { id: "A", text: "Se forma una espuma blanca y burbujeante" },
-        { id: "B", text: "Cambia de color" },
-        { id: "C", text: "Se vuelve sólido" },
+        { id: "A", text: "Las tiró al suelo" },
+        { id: "B", text: "Siguió las instrucciones para armarlo" },
+        { id: "C", text: "Las pintó" },
+        { id: "D", text: "Las escondió bajo su cama" },
       ],
-      correctAnswer: "A",
+      correctAnswer: "B",
     },
     {
       id: 3,
-      question: "¿Qué gas se crea durante el experimento?",
+      question: "¿Qué hizo Robi para ayudar a Timmy con su tarea?",
       options: [
-        { id: "A", text: "Oxígeno" },
-        { id: "B", text: "Dióxido de carbono" },
-        { id: "C", text: "Hidrógeno" },
+        { id: "A", text: "Lanzó una pantalla con números y sumas" },
+        { id: "B", text: "Escribió la tarea por él" },
+        { id: "C", text: "Le dio un libro de matemáticas" },
+        { id: "D", text: "Le dijo las respuestas en voz baja" },
       ],
-      correctAnswer: "B",
+      correctAnswer: "A",
     },
     {
       id: 4,
-      question: "¿Cómo se sintió Timmy al hacer el experimento?",
+      question: "¿Qué dijo Robi cuando lo encendieron?",
       options: [
-        { id: "A", text: "Aburrido" },
-        { id: "B", text: "Como un verdadero científico" },
-        { id: "C", text: "Cansado" },
+        { id: "A", text: "\"¡Hola, Timmy! ¿Qué vamos a hacer hoy?\"" },
+        { id: "B", text: "\"¿Quieres jugar?\"" },
+        { id: "C", text: "\"Adiós, Timmy\"" },
+        { id: "D", text: "\"Estoy apagado\"" },
       ],
-      correctAnswer: "B",
+      correctAnswer: "A",
     },
     {
       id: 5,
-      question: "¿Qué escribió Timmy en su cuaderno después del experimento?",
+      question: "¿Qué hicieron Timmy y Robi juntos?",
       options: [
-        { id: "A", text: "Que la ciencia puede ser divertida y sorprendente" },
-        { id: "B", text: "Que no le gustó la ciencia" },
-        { id: "C", text: "Que prefiere la magia" },
+        { id: "A", text: "Solo estudiaron matemáticas" },
+        { id: "B", text: "Dibujaron, estudiaron, y jugaron" },
+        { id: "C", text: "Salieron a pasear" },
+        { id: "D", text: "Armaron un rompecabezas" },
       ],
-      correctAnswer: "A",
+      correctAnswer: "B",
     },
   ];
 
@@ -65,18 +70,18 @@ const SpanishWednesday = () => {
       <main className="kid-container pt-8">
         <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
           <p className="text-amber-700 font-medium">
-            Primero lee la historia "El experimento de ciencias" de tu cartilla análoga y después responde las preguntas.
+            Primero lee la historia "Mi amigo tecnológico" de tu cartilla análoga y después responde las preguntas.
           </p>
         </div>
         
-        <h1 className="text-3xl font-bold text-center mb-8">El experimento de ciencias</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">Mi amigo tecnológico</h1>
         
         <SpanishLesson
-          title="El experimento de ciencias"
-          icon={<FlaskConical className="h-8 w-8 text-orange-500" />}
-          questions={scienceQuestions}
-          activityTitle="¡Experimento de ciencias!"
-          activityDescription="Con ayuda de un adulto, repite el experimento en casa mezclando bicarbonato de sodio con vinagre. Dibuja o escribe qué ocurrió durante el experimento."
+          title="Mi amigo tecnológico"
+          icon={<Bot className="h-8 w-8 text-orange-500" />}
+          questions={robotQuestions}
+          activityTitle="¡Diseña tu robot!"
+          activityDescription="Imagina tu propio robot. ¿Qué funciones tendría? ¿Cómo te ayudaría? Dibuja cómo sería y escribe qué cosas podría hacer."
         />
       </main>
     </div>

@@ -1,60 +1,65 @@
 
 import React from 'react';
-import { Map } from 'lucide-react';
+import { Tent } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
 const SpanishFriday = () => {
-  const treasureQuestions = [
+  const campingQuestions = [
     {
       id: 1,
-      question: "¿Qué encontró Timmy mientras jugaba en el parque?",
+      question: "¿Qué estaban haciendo Timmy y su familia?",
       options: [
-        { id: "A", text: "Una caja de juguetes" },
-        { id: "B", text: "Un mapa del tesoro" },
-        { id: "C", text: "Una botella con un mensaje" },
+        { id: "A", text: "Yendo a la playa" },
+        { id: "B", text: "Pasando la noche de camping en el bosque" },
+        { id: "C", text: "Visitando un museo" },
+        { id: "D", text: "Paseando por la ciudad" },
       ],
       correctAnswer: "B",
     },
     {
       id: 2,
-      question: "¿Qué había dentro del cofre que encontró Timmy?",
+      question: "¿Qué ayudó a Timmy y su hermana a encontrar el camino de regreso al campamento?",
       options: [
-        { id: "A", text: "Monedas de oro" },
-        { id: "B", text: "Monedas de chocolate" },
-        { id: "C", text: "Juguetes" },
+        { id: "A", text: "Un mapa antiguo escondido en el bosque" },
+        { id: "B", text: "Un grupo de luciérnagas que iluminaron el sendero" },
+        { id: "C", text: "Los sonidos de los animales nocturnos" },
+        { id: "D", text: "La linterna de su padre" },
       ],
       correctAnswer: "B",
     },
     {
       id: 3,
-      question: "¿Qué decía la nota que encontró en el cofre?",
+      question: "¿Qué hicieron Timmy y su familia alrededor de la fogata?",
       options: [
-        { id: "A", text: "\"El tesoro está en otro lugar\"" },
-        { id: "B", text: "\"El verdadero tesoro es la aventura que viviste\"" },
-        { id: "C", text: "\"Comparte las monedas con tus amigos\"" },
+        { id: "A", text: "Asaron malvaviscos y contaron historias" },
+        { id: "B", text: "Se fueron a dormir rápido" },
+        { id: "C", text: "Jugaron fútbol" },
+        { id: "D", text: "Encendieron cohetes" },
       ],
-      correctAnswer: "B",
+      correctAnswer: "A",
     },
     {
       id: 4,
-      question: "¿Qué hizo Timmy después de encontrar el cofre?",
+      question: "¿Qué sintió Timmy cuando escuchó un aullido en el bosque?",
       options: [
-        { id: "A", text: "Se lo quedó para él" },
-        { id: "B", text: "Corrió a buscar a sus amigos para compartir" },
-        { id: "C", text: "Lo enterró de nuevo" },
+        { id: "A", text: "Miedo" },
+        { id: "B", text: "Felicidad" },
+        { id: "C", text: "Sueño" },
+        { id: "D", text: "Alegría" },
       ],
-      correctAnswer: "B",
+      correctAnswer: "A",
     },
     {
       id: 5,
-      question: "¿Qué fue lo más importante para Timmy en esta aventura?",
+      question: "¿Qué soñó Timmy esa noche?",
       options: [
-        { id: "A", text: "Encontrar monedas de oro" },
-        { id: "B", text: "Vivir una aventura con sus amigos" },
-        { id: "C", text: "Ganar un premio" },
+        { id: "A", text: "Con más campamentos y valentía" },
+        { id: "B", text: "Con dragones voladores" },
+        { id: "C", text: "Con ser astronauta" },
+        { id: "D", text: "Con su casa llena de árboles" },
       ],
-      correctAnswer: "B",
+      correctAnswer: "A",
     },
   ];
 
@@ -65,18 +70,18 @@ const SpanishFriday = () => {
       <main className="kid-container pt-8">
         <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
           <p className="text-amber-700 font-medium">
-            Primero lee la historia "El Tesoro Perdido" de tu cartilla análoga y después responde las preguntas.
+            Primero lee la historia "La noche de camping" de tu cartilla análoga y después responde las preguntas.
           </p>
         </div>
         
-        <h1 className="text-3xl font-bold text-center mb-8">El Tesoro Perdido</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">La noche de camping</h1>
         
         <SpanishLesson
-          title="El Tesoro Perdido"
-          icon={<Map className="h-8 w-8 text-orange-500" />}
-          questions={treasureQuestions}
-          activityTitle="¡Crea tu mapa del tesoro!"
-          activityDescription="Dibuja tu propio mapa del tesoro y escóndelo en tu casa para jugar con algún amigo o familiar. ¿Qué tesoro esconderás para encontrar?"
+          title="La noche de camping"
+          icon={<Tent className="h-8 w-8 text-orange-500" />}
+          questions={campingQuestions}
+          activityTitle="¡Inventa tu propia aventura!"
+          activityDescription="Imagina que estás de camping. ¿Qué animales encontrarías? ¿Qué aventuras tendrías? Dibuja o escribe tu propia historia de camping."
         />
       </main>
     </div>

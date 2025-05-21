@@ -1,58 +1,63 @@
 
 import React from 'react';
-import { Bot } from 'lucide-react';
+import { Map } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
 const SpanishThursday = () => {
-  const robotQuestions = [
+  const treasureQuestions = [
     {
       id: 1,
-      question: "¿Por qué Timmy dice que Robi es un gran amigo?",
+      question: "¿Qué encontró Timmy mientras jugaba en el parque?",
       options: [
-        { id: "A", text: "Porque le ayuda a hacer travesuras" },
-        { id: "B", text: "Porque Robi hace su tarea por él" },
-        { id: "C", text: "Porque aprenden y se divierten juntos" },
+        { id: "A", text: "Una caja de juguetes" },
+        { id: "B", text: "Un mapa del tesoro" },
+        { id: "C", text: "Una botella con un mensaje" },
+        { id: "D", text: "Un billete viejo" },
       ],
-      correctAnswer: "C",
+      correctAnswer: "B",
     },
     {
       id: 2,
-      question: "¿Qué hizo Timmy primero con las piezas del robot?",
+      question: "¿Qué había dentro del cofre que encontró Timmy?",
       options: [
-        { id: "A", text: "Las tiró al suelo" },
-        { id: "B", text: "Siguió las instrucciones para armarlo" },
-        { id: "C", text: "Las pintó" },
+        { id: "A", text: "Monedas de oro" },
+        { id: "B", text: "Monedas de chocolate" },
+        { id: "C", text: "Juguetes" },
+        { id: "D", text: "Piedras mágicas" },
       ],
       correctAnswer: "B",
     },
     {
       id: 3,
-      question: "¿Qué hizo Robi para ayudar a Timmy con su tarea?",
+      question: "¿Qué decía la nota que encontró en el cofre?",
       options: [
-        { id: "A", text: "Lanzó una pantalla con números y sumas" },
-        { id: "B", text: "Escribió la tarea por él" },
-        { id: "C", text: "Le dio un libro de matemáticas" },
+        { id: "A", text: "\"El tesoro está en otro lugar\"" },
+        { id: "B", text: "\"El verdadero tesoro es la aventura que viviste\"" },
+        { id: "C", text: "\"Comparte las monedas con tus amigos\"" },
+        { id: "D", text: "\"No cuentes este secreto\"" },
       ],
-      correctAnswer: "A",
+      correctAnswer: "B",
     },
     {
       id: 4,
-      question: "¿Qué dijo Robi cuando lo encendieron?",
+      question: "¿Qué hizo Timmy después de encontrar el cofre?",
       options: [
-        { id: "A", text: "\"¡Hola, Timmy! ¿Qué vamos a hacer hoy?\"" },
-        { id: "B", text: "\"¿Quieres jugar?\"" },
-        { id: "C", text: "\"Adiós, Timmy\"" },
+        { id: "A", text: "Se lo quedó para él" },
+        { id: "B", text: "Corrió a buscar a sus amigos para compartir" },
+        { id: "C", text: "Lo enterró de nuevo" },
+        { id: "D", text: "Lo llevó al director de la escuela" },
       ],
-      correctAnswer: "A",
+      correctAnswer: "B",
     },
     {
       id: 5,
-      question: "¿Qué hicieron Timmy y Robi juntos?",
+      question: "¿Qué fue lo más importante para Timmy en esta aventura?",
       options: [
-        { id: "A", text: "Solo estudiaron matemáticas" },
-        { id: "B", text: "Dibujaron, estudiaron, y jugaron" },
-        { id: "C", text: "Salieron a pasear" },
+        { id: "A", text: "Encontrar monedas de oro" },
+        { id: "B", text: "Vivir una aventura con sus amigos" },
+        { id: "C", text: "Ganar un premio" },
+        { id: "D", text: "Tomarse fotos con el mapa" },
       ],
       correctAnswer: "B",
     },
@@ -65,18 +70,18 @@ const SpanishThursday = () => {
       <main className="kid-container pt-8">
         <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
           <p className="text-amber-700 font-medium">
-            Primero lee la historia "Mi amigo tecnológico" de tu cartilla análoga y después responde las preguntas.
+            Primero lee la historia "El tesoro perdido" de tu cartilla análoga y después responde las preguntas.
           </p>
         </div>
         
-        <h1 className="text-3xl font-bold text-center mb-8">Mi amigo tecnológico</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">El tesoro perdido</h1>
         
         <SpanishLesson
-          title="Mi amigo tecnológico"
-          icon={<Bot className="h-8 w-8 text-orange-500" />}
-          questions={robotQuestions}
-          activityTitle="¡Diseña tu robot!"
-          activityDescription="Imagina tu propio robot. ¿Qué funciones tendría? ¿Cómo te ayudaría? Dibuja cómo sería y escribe qué cosas podría hacer."
+          title="El tesoro perdido"
+          icon={<Map className="h-8 w-8 text-orange-500" />}
+          questions={treasureQuestions}
+          activityTitle="¡Crea tu mapa del tesoro!"
+          activityDescription="Dibuja tu propio mapa del tesoro y escóndelo en tu casa para jugar con algún amigo o familiar. ¿Qué tesoro esconderás para encontrar?"
         />
       </main>
     </div>

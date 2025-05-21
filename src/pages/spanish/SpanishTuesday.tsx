@@ -1,58 +1,63 @@
 
 import React from 'react';
-import { Flame } from 'lucide-react';
+import { FlaskConical } from 'lucide-react';
 import Header from '@/components/Header';
 import SpanishLesson from '@/components/spanish/SpanishLesson';
 
 const SpanishTuesday = () => {
-  const dragonQuestions = [
+  const scienceQuestions = [
     {
       id: 1,
-      question: "¿Qué hizo especial al dibujo de Timmy?",
+      question: "¿Por qué Timmy y Laura usaron guantes y gafas durante el experimento?",
       options: [
-        { id: "A", text: "Que lo colgó en la pared de su cuarto" },
-        { id: "B", text: "Que su hermana también lo pintó con él" },
-        { id: "C", text: "Que comenzó a moverse y cobró vida" },
+        { id: "A", text: "Porque querían parecerse a los bomberos" },
+        { id: "B", text: "Porque iban a limpiar la clase" },
+        { id: "C", text: "Porque necesitaban protegerse durante el experimento" },
+        { id: "D", text: "Porque les daba frío" },
       ],
       correctAnswer: "C",
     },
     {
       id: 2,
-      question: "¿Cómo se llamaba el dragón que dibujó Timmy?",
+      question: "¿Qué sucede cuando se mezcla vinagre con bicarbonato de sodio?",
       options: [
-        { id: "A", text: "Gus" },
-        { id: "B", text: "Flamy" },
-        { id: "C", text: "Azulito" },
+        { id: "A", text: "Se forma una espuma blanca y burbujeante" },
+        { id: "B", text: "Cambia de color" },
+        { id: "C", text: "Se vuelve sólido" },
+        { id: "D", text: "Desaparece por completo" },
       ],
       correctAnswer: "A",
     },
     {
       id: 3,
-      question: "¿Qué pensó Timmy que olía la cueva del dragón?",
+      question: "¿Qué gas se crea durante el experimento?",
       options: [
-        { id: "A", text: "A flores frescas" },
-        { id: "B", text: "A galletas recién horneadas" },
-        { id: "C", text: "A pastel de manzana" },
+        { id: "A", text: "Oxígeno" },
+        { id: "B", text: "Dióxido de carbono" },
+        { id: "C", text: "Hidrógeno" },
+        { id: "D", text: "Vapor de agua" },
       ],
       correctAnswer: "B",
     },
     {
       id: 4,
-      question: "¿Quién no pudo ver el dibujo moverse?",
+      question: "¿Cómo se sintió Timmy al hacer el experimento?",
       options: [
-        { id: "A", text: "La mamá de Timmy" },
-        { id: "B", text: "Su hermana" },
-        { id: "C", text: "Su papá" },
+        { id: "A", text: "Aburrido" },
+        { id: "B", text: "Como un verdadero científico" },
+        { id: "C", text: "Cansado" },
+        { id: "D", text: "Muy confundido" },
       ],
       correctAnswer: "B",
     },
     {
       id: 5,
-      question: "¿Qué soñó Timmy esa noche?",
+      question: "¿Qué escribió Timmy en su cuaderno después del experimento?",
       options: [
-        { id: "A", text: "Que estaba volando con Gus y dejando estrellas" },
-        { id: "B", text: "Que el dragón desapareció" },
-        { id: "C", text: "Que estaba pintando más dragones" },
+        { id: "A", text: "Que la ciencia puede ser divertida y sorprendente" },
+        { id: "B", text: "Que no le gustó la ciencia" },
+        { id: "C", text: "Que prefiere la magia" },
+        { id: "D", text: "Que fue un desastre" },
       ],
       correctAnswer: "A",
     },
@@ -65,18 +70,18 @@ const SpanishTuesday = () => {
       <main className="kid-container pt-8">
         <div className="mb-8 bg-amber-100 border-l-4 border-amber-500 p-4 rounded-md">
           <p className="text-amber-700 font-medium">
-            Primero lee la historia "El dibujo mágico" de tu cartilla análoga y después responde las preguntas.
+            Primero lee la historia "El experimento de ciencias" de tu cartilla análoga y después responde las preguntas.
           </p>
         </div>
         
-        <h1 className="text-3xl font-bold text-center mb-8">El dibujo mágico</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">El experimento de ciencias</h1>
         
         <SpanishLesson
-          title="El dibujo mágico"
-          icon={<Flame className="h-8 w-8 text-orange-500" />}
-          questions={dragonQuestions}
-          activityTitle="¡Dibuja tu propio dragón mágico!"
-          activityDescription="Dibuja un dragón que te gustaría que cobrara vida. ¿Qué colores tendría? ¿Qué poderes especiales tendría? ¿Cómo se llamaría?"
+          title="El experimento de ciencias"
+          icon={<FlaskConical className="h-8 w-8 text-orange-500" />}
+          questions={scienceQuestions}
+          activityTitle="¡Experimento de ciencias!"
+          activityDescription="Con ayuda de un adulto, repite el experimento en casa mezclando bicarbonato de sodio con vinagre. Dibuja o escribe qué ocurrió durante el experimento."
         />
       </main>
     </div>
