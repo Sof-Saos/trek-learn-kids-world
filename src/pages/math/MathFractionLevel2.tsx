@@ -1,8 +1,9 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Check, PieChart } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card } from '@/components/ui/card';
 
@@ -110,65 +111,16 @@ const MathFractionLevel2 = () => {
     setIsCorrect(null);
   };
 
-  // Helper function to render the appropriate visualization for the current question
-  const renderQuestionImage = () => {
-    switch(questions[currentQuestion].image) {
-      case 'cake':
-        return (
-          <div className="flex flex-wrap gap-1 justify-center">
-            <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-            <div className="w-8 h-8 bg-yellow-200 rounded-full"></div>
-          </div>
-        );
-      case 'bottle':
-        return (
-          <div className="w-8 h-24 border-2 border-blue-500 rounded-lg relative">
-            <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-blue-200"></div>
-            <div className="absolute w-full bottom-6 border-t border-dashed border-blue-500"></div>
-            <div className="absolute w-full bottom-12 border-t border-dashed border-blue-500"></div>
-            <div className="absolute w-full bottom-18 border-t border-dashed border-blue-500"></div>
-          </div>
-        );
-      case 'crayons':
-        return (
-          <div className="flex space-x-1 justify-center">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className={`w-2 h-10 rounded-sm ${i < 3 ? 'bg-blue-500' : 'bg-red-400'}`}></div>
-            ))}
-          </div>
-        );
-      case 'cereal':
-        return (
-          <div className="flex justify-center">
-            <div className="w-40 h-8 flex">
-              <div className="flex-1 bg-amber-100 border-r border-amber-800"></div>
-              <div className="flex-1 bg-amber-100 border-r border-amber-800"></div>
-              <div className="flex-1 bg-amber-800 border-r border-amber-800"></div>
-              <div className="flex-1 bg-amber-800 border-r border-amber-800"></div>
-              <div className="flex-1 bg-amber-800"></div>
-            </div>
-          </div>
-        );
-      case 'clock':
-        return (
-          <div className="w-20 h-20 rounded-full border-4 border-gray-800 relative">
-            <div className="absolute top-1/2 left-1/2 w-1 h-8 bg-gray-800 origin-bottom transform -translate-x-1/2 -translate-y-full rotate-0"></div>
-            <div className="absolute top-1/2 left-1/2 w-1 h-6 bg-gray-600 origin-bottom transform -translate-x-1/2 -translate-y-full rotate-90"></div>
-            <div className="absolute top-0 left-1/2 w-1 h-2 bg-gray-800 -translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-1/2 w-1 h-2 bg-gray-800 -translate-x-1/2"></div>
-            <div className="absolute left-0 top-1/2 h-1 w-2 bg-gray-800 -translate-y-1/2"></div>
-            <div className="absolute right-0 top-1/2 h-1 w-2 bg-gray-800 -translate-y-1/2"></div>
-          </div>
-        );
-      default:
-        return <PieChart className="w-16 h-16 text-yellow-600" />;
-    }
+  // Helper function to get the image URL for the current question
+  const getImageUrl = (imageKey: string) => {
+    const imageUrls = {
+      cake: "URL_DE_IMAGEN_PASTEL", // Reemplaza con el enlace de tu imagen
+      bottle: "URL_DE_IMAGEN_BOTELLA", // Reemplaza con el enlace de tu imagen
+      crayons: "URL_DE_IMAGEN_CRAYONES", // Reemplaza con el enlace de tu imagen
+      cereal: "URL_DE_IMAGEN_CEREAL", // Reemplaza con el enlace de tu imagen
+      clock: "URL_DE_IMAGEN_RELOJ", // Reemplaza con el enlace de tu imagen
+    };
+    return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
 
   return (
@@ -235,7 +187,11 @@ const MathFractionLevel2 = () => {
                 </h2>
                 
                 <div className="flex justify-center items-center py-6">
-                  {renderQuestionImage()}
+                  <img 
+                    src={getImageUrl(questions[currentQuestion].image!)}
+                    alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
+                    className="w-32 h-32 object-contain rounded-lg"
+                  />
                 </div>
               </div>
 

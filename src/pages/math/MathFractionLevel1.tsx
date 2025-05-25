@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Check, Apple, PieChart } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card } from '@/components/ui/card';
 
@@ -111,35 +111,16 @@ const MathFractionLevel1 = () => {
     setIsCorrect(null);
   };
 
-  // Helper function to render the appropriate icon for the current question
-  const renderQuestionImage = () => {
-    switch(questions[currentQuestion].image) {
-      case 'apple':
-        return <Apple className="w-16 h-16 text-red-500" />;
-      case 'pizza':
-        return <PieChart className="w-16 h-16 text-yellow-600" />;
-      case 'chocolate':
-        return <div className="w-16 h-8 bg-amber-800 rounded-sm"></div>;
-      case 'figure':
-        return (
-          <div className="flex">
-            <div className="w-8 h-16 bg-blue-500 rounded-l-full"></div>
-            <div className="w-8 h-16 bg-gray-200 rounded-r-full"></div>
-          </div>
-        );
-      case 'balloons':
-        return (
-          <div className="flex space-x-1">
-            <div className="w-4 h-6 rounded-full bg-red-500"></div>
-            <div className="w-4 h-6 rounded-full bg-red-500"></div>
-            <div className="w-4 h-6 rounded-full bg-blue-500"></div>
-            <div className="w-4 h-6 rounded-full bg-red-500"></div>
-            <div className="w-4 h-6 rounded-full bg-blue-500"></div>
-          </div>
-        );
-      default:
-        return null;
-    }
+  // Helper function to get the image URL for the current question
+  const getImageUrl = (imageKey: string) => {
+    const imageUrls = {
+      apple: "URL_DE_IMAGEN_MANZANA", // Reemplaza con el enlace de tu imagen
+      chocolate: "URL_DE_IMAGEN_CHOCOLATE", // Reemplaza con el enlace de tu imagen
+      pizza: "URL_DE_IMAGEN_PIZZA", // Reemplaza con el enlace de tu imagen
+      figure: "URL_DE_IMAGEN_FIGURA", // Reemplaza con el enlace de tu imagen
+      balloons: "URL_DE_IMAGEN_GLOBOS", // Reemplaza con el enlace de tu imagen
+    };
+    return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
 
   return (
@@ -207,7 +188,11 @@ const MathFractionLevel1 = () => {
                 
                 {questions[currentQuestion].image && (
                   <div className="flex justify-center items-center py-6">
-                    {renderQuestionImage()}
+                    <img 
+                      src={getImageUrl(questions[currentQuestion].image!)}
+                      alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
+                      className="w-32 h-32 object-contain rounded-lg"
+                    />
                   </div>
                 )}
               </div>

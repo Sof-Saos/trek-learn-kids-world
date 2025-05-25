@@ -1,8 +1,9 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Check, PieChart } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { Card } from '@/components/ui/card';
 
@@ -110,125 +111,16 @@ const MathFractionLevel3 = () => {
     setIsCorrect(null);
   };
 
-  // Helper function to render the appropriate visualization for the current question
-  const renderQuestionImage = () => {
-    switch(questions[currentQuestion].image) {
-      case 'compare1':
-        return (
-          <div className="flex gap-8 justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                <div className="absolute w-16 h-12 bg-blue-400 rounded-t-full"></div>
-                <p className="absolute w-full text-center top-full mt-1">3/4</p>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                <div className="absolute w-16 h-8 bg-green-400 rounded-t-full"></div>
-                <p className="absolute w-full text-center top-full mt-1">2/4</p>
-              </div>
-            </div>
-          </div>
-        );
-      case 'compare2':
-        return (
-          <div className="flex gap-8 justify-center">
-            <div className="text-center">
-              <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                <div className="absolute w-16 h-8 bg-pink-400 rounded-t-full"></div>
-                <p className="absolute w-full text-center top-full mt-1">1/2</p>
-              </div>
-              <p>Tú</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                <div className="absolute w-16 h-8 bg-purple-400 rounded-t-full"></div>
-                <p className="absolute w-full text-center top-full mt-1">2/4</p>
-              </div>
-              <p>Tu amigo</p>
-            </div>
-          </div>
-        );
-      case 'equivalent1':
-        return (
-          <div className="flex flex-col items-center">
-            <div className="flex mb-4">
-              <div className="w-10 h-10 border border-gray-300 bg-blue-400"></div>
-              <div className="w-10 h-10 border border-gray-300 bg-blue-400"></div>
-              <div className="w-10 h-10 border border-gray-300"></div>
-              <div className="w-10 h-10 border border-gray-300"></div>
-              <div className="w-10 h-10 border border-gray-300"></div>
-              <div className="w-10 h-10 border border-gray-300"></div>
-            </div>
-            <p>2/6</p>
-          </div>
-        );
-      case 'equivalent2':
-        return (
-          <div className="flex justify-center gap-8">
-            <div className="text-center">
-              <div className="w-10 h-24 border-2 border-gray-800 rounded-md relative">
-                <div className="absolute bottom-0 w-full h-1/3 bg-yellow-200"></div>
-                <div className="absolute w-full top-1/3 border-t border-dashed border-gray-800"></div>
-                <div className="absolute w-full top-2/3 border-t border-dashed border-gray-800"></div>
-              </div>
-              <p className="mt-2">1/3 necesario</p>
-            </div>
-            <div className="text-center">
-              <div className="w-10 h-24 border-2 border-gray-800 rounded-md relative">
-                <div className="absolute bottom-0 w-full h-1/3 bg-yellow-200"></div>
-                <div className="absolute w-full top-1/6 border-t border-dashed border-gray-800"></div>
-                <div className="absolute w-full top-2/6 border-t border-dashed border-gray-800"></div>
-                <div className="absolute w-full top-3/6 border-t border-dashed border-gray-800"></div>
-                <div className="absolute w-full top-4/6 border-t border-dashed border-gray-800"></div>
-                <div className="absolute w-full top-5/6 border-t border-dashed border-gray-800"></div>
-              </div>
-              <p className="mt-2">2/6 disponible</p>
-            </div>
-          </div>
-        );
-      case 'equivalent3':
-        return (
-          <div className="flex flex-col items-center gap-4">
-            <div>
-              <div className="w-32 h-8 flex mb-1">
-                <div className="flex-1 bg-blue-200 border border-gray-300"></div>
-                <div className="flex-1 bg-blue-200 border border-gray-300"></div>
-                <div className="flex-1 bg-blue-200 border border-gray-300"></div>
-                <div className="flex-1 bg-blue-200 border border-gray-300"></div>
-                <div className="flex-1 border border-gray-300"></div>
-                <div className="flex-1 border border-gray-300"></div>
-                <div className="flex-1 border border-gray-300"></div>
-                <div className="flex-1 border border-gray-300"></div>
-              </div>
-              <p className="text-center">4/8</p>
-            </div>
-            <div className="text-lg">=</div>
-            <div className="flex gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                  <div className="absolute w-16 h-4 bg-red-400 rounded-t-full"></div>
-                  <p className="absolute w-full text-center top-full mt-1">1/4</p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                  <div className="absolute w-16 h-8 bg-green-400 rounded-t-full"></div>
-                  <p className="absolute w-full text-center top-full mt-1">1/2</p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 relative bg-gray-200 rounded-full mb-2">
-                  <div className="absolute w-16 h-12 bg-blue-400 rounded-t-full"></div>
-                  <p className="absolute w-full text-center top-full mt-1">3/4</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return <PieChart className="w-16 h-16 text-yellow-600" />;
-    }
+  // Helper function to get the image URL for the current question
+  const getImageUrl = (imageKey: string) => {
+    const imageUrls = {
+      compare1: "URL_DE_IMAGEN_COMPARACION_1", // Reemplaza con el enlace de tu imagen
+      compare2: "URL_DE_IMAGEN_COMPARACION_2", // Reemplaza con el enlace de tu imagen
+      equivalent1: "URL_DE_IMAGEN_EQUIVALENCIA_1", // Reemplaza con el enlace de tu imagen
+      equivalent2: "URL_DE_IMAGEN_EQUIVALENCIA_2", // Reemplaza con el enlace de tu imagen
+      equivalent3: "URL_DE_IMAGEN_EQUIVALENCIA_3", // Reemplaza con el enlace de tu imagen
+    };
+    return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
 
   return (
@@ -295,7 +187,11 @@ const MathFractionLevel3 = () => {
                 </h2>
                 
                 <div className="flex justify-center items-center py-6">
-                  {renderQuestionImage()}
+                  <img 
+                    src={getImageUrl(questions[currentQuestion].image!)}
+                    alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
+                    className="w-32 h-32 object-contain rounded-lg"
+                  />
                 </div>
               </div>
 
