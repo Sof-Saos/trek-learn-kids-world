@@ -83,7 +83,7 @@ const Index = () => {
 
       <footer className="mt-16 py-6 bg-white shadow-inner">
         <div className="kid-container text-center">
-          <p className="text-gray-600">© 2025 didaktik - ¡Aprender es divertido!</p>
+          <p className="text-gray-600">© 2025 didactik - ¡Aprender debe ser divertido!</p>
         </div>
       </footer>
     </div>

@@ -220,7 +220,7 @@ const SpanishLesson: React.FC<SpanishLessonProps> = ({
             
             <div className="bg-soft-orange bg-opacity-30 p-4 rounded-lg">
               <p className="italic">
-                Comparte tu actividad con tu maestro/a para recibir retroalimentación.
+                Deja volar tu imaginación, ¡Comparte tu creación con tus padres, maestros y amigos!
               </p>
             </div>
             

@@ -27,11 +27,11 @@ const questions: Question[] = [
   },
   {
     id: 2,
-    question: "Si tienes 1/2 de un pastel y tu amigo tiene 2/4, ¿quién tiene más?",
+    question: "Si tienes 1/2 de sandía y tu amigo tiene 2/4, ¿quién tiene más?",
     image: "compare2",
     options: ["Tú", "Tu amigo", "Los dos tienen lo mismo"],
     correctAnswer: "Los dos tienen lo mismo",
-    explanation: "1/2 y 2/4 son fracciones equivalentes, ambos representan la mitad."
+    explanation: "1/2 y 2/4 son fracciones equivalentes, ambos son lo mismo."
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const questions: Question[] = [
     image: "equivalent2",
     options: ["Sí", "No", "Tal vez"],
     correctAnswer: "Sí",
-    explanation: "2/6 simplificado es 1/3, por lo tanto sí es suficiente."
+    explanation: "2/6 se colorea igual que 1/3, por lo tanto sí es suficiente."
   },
   {
     id: 5,
@@ -114,11 +114,11 @@ const MathFractionLevel3 = () => {
   // Helper function to get the image URL for the current question
   const getImageUrl = (imageKey: string) => {
     const imageUrls = {
-      compare1: "URL_DE_IMAGEN_COMPARACION_1", // Reemplaza con el enlace de tu imagen
-      compare2: "URL_DE_IMAGEN_COMPARACION_2", // Reemplaza con el enlace de tu imagen
-      equivalent1: "URL_DE_IMAGEN_EQUIVALENCIA_1", // Reemplaza con el enlace de tu imagen
-      equivalent2: "URL_DE_IMAGEN_EQUIVALENCIA_2", // Reemplaza con el enlace de tu imagen
-      equivalent3: "URL_DE_IMAGEN_EQUIVALENCIA_3", // Reemplaza con el enlace de tu imagen
+      compare1: "/img/fractions/fracciónmayor.png", // Reemplaza con el enlace de tu imagen
+      compare2: "/img/fractions/Sandía.png", // Reemplaza con el enlace de tu imagen
+      equivalent1: "/img/fractions/fracciónequivalente.png", // Reemplaza con el enlace de tu imagen
+      equivalent2: "/img/fractions/azúcar.png", // Reemplaza con el enlace de tu imagen
+      equivalent3: "/img/fractions/fracciónmismacantidad.png", // Reemplaza con el enlace de tu imagen
     };
     return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
@@ -190,7 +190,7 @@ const MathFractionLevel3 = () => {
                   <img 
                     src={getImageUrl(questions[currentQuestion].image!)}
                     alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
-                    className="w-32 h-32 object-contain rounded-lg"
+                    className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain rounded-xl mx-auto"
                   />
                 </div>
               </div>

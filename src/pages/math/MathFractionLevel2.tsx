@@ -19,15 +19,15 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question: "Un pastel está dividido en 8 porciones. Si se han comido 6, ¿qué fracción queda?",
+    question: "Un pastel está dividido en 6 porciones. Si se han comido 5, ¿qué fracción queda?",
     image: "cake",
-    options: ["2/8", "6/8", "4/8"],
-    correctAnswer: "2/8",
+    options: ["1/6", "6/6", "4/6"],
+    correctAnswer: "1/6",
     explanation: "De 8 porciones totales, si se comieron 6, quedan 2, por lo tanto queda 2/8 del pastel."
   },
   {
     id: 2,
-    question: "Una botella tiene marcas que la dividen en cuartos. Si tomas 3 marcas, ¿cuánto has tomado?",
+    question: "Una botella tiene marcas que la dividen en cuatro partes. Si tomas 3 marcas, ¿cuánto has tomado?",
     image: "bottle",
     options: ["3/4", "1/4", "2/4"],
     correctAnswer: "3/4",
@@ -43,19 +43,19 @@ const questions: Question[] = [
   },
   {
     id: 4,
-    question: "Tienes una barra de cereal dividida en 5 partes. Si comes 2 partes, ¿qué fracción has comido?",
+    question: "Tienes una barra de cereal dividida en 6 partes. Si comes 2 partes, ¿qué fracción has comido?",
     image: "cereal",
-    options: ["2/5", "3/5", "5/5"],
-    correctAnswer: "2/5",
-    explanation: "De 5 partes totales, comiste 2, por lo tanto comiste 2/5 de la barra."
+    options: ["2/6", "3/5", "5/5"],
+    correctAnswer: "2/6",
+    explanation: "De 6 partes totales, comiste 2, por lo tanto comiste 2/6 de la barra."
   },
   {
     id: 5,
-    question: "Un reloj marca cuartos de hora. Si ha pasado un cuarto de hora, ¿qué fracción ha pasado?",
+    question: "Los relojes tienen 12 horas. Si el minutero (la manecilla grande) está apuntando a el número 11, ¿qué fracción de la hora ha pasado?",
     image: "clock",
-    options: ["1/4", "1/2", "3/4"],
-    correctAnswer: "1/4",
-    explanation: "El reloj divide la hora en 4 partes (cuartos). Si pasó un cuarto, entonces pasó 1/4 de hora."
+    options: ["11/12", "1/5", "12/12"],
+    correctAnswer: "11/12",
+    explanation: "El reloj divide la hora en 12 números. Si el minutero marca el número 11 un cuarto, entonces pasaron 11/12 de hora."
   }
 ];
 
@@ -114,11 +114,11 @@ const MathFractionLevel2 = () => {
   // Helper function to get the image URL for the current question
   const getImageUrl = (imageKey: string) => {
     const imageUrls = {
-      cake: "URL_DE_IMAGEN_PASTEL", // Reemplaza con el enlace de tu imagen
-      bottle: "URL_DE_IMAGEN_BOTELLA", // Reemplaza con el enlace de tu imagen
-      crayons: "URL_DE_IMAGEN_CRAYONES", // Reemplaza con el enlace de tu imagen
-      cereal: "URL_DE_IMAGEN_CEREAL", // Reemplaza con el enlace de tu imagen
-      clock: "URL_DE_IMAGEN_RELOJ", // Reemplaza con el enlace de tu imagen
+      cake: "/img/fractions/Pastel.png", // Reemplaza con el enlace de tu imagen
+      bottle: "/img/fractions/Botella.png", // Reemplaza con el enlace de tu imagen
+      crayons: "/img/fractions/Crayones.png", // Reemplaza con el enlace de tu imagen
+      cereal: "/img/fractions/Barracereal.png", // Reemplaza con el enlace de tu imagen
+      clock: "/img/fractions/Relojfraccion.png", // Reemplaza con el enlace de tu imagen
     };
     return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
@@ -190,7 +190,7 @@ const MathFractionLevel2 = () => {
                   <img 
                     src={getImageUrl(questions[currentQuestion].image!)}
                     alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
-                    className="w-32 h-32 object-contain rounded-lg"
+                    className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain rounded-xl mx-auto"
                   />
                 </div>
               </div>

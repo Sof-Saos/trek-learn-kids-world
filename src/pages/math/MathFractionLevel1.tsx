@@ -114,11 +114,11 @@ const MathFractionLevel1 = () => {
   // Helper function to get the image URL for the current question
   const getImageUrl = (imageKey: string) => {
     const imageUrls = {
-      apple: "URL_DE_IMAGEN_MANZANA", // Reemplaza con el enlace de tu imagen
-      chocolate: "URL_DE_IMAGEN_CHOCOLATE", // Reemplaza con el enlace de tu imagen
-      pizza: "URL_DE_IMAGEN_PIZZA", // Reemplaza con el enlace de tu imagen
-      figure: "URL_DE_IMAGEN_FIGURA", // Reemplaza con el enlace de tu imagen
-      balloons: "URL_DE_IMAGEN_GLOBOS", // Reemplaza con el enlace de tu imagen
+      apple: "/img/fractions/Manzana.png", 
+      chocolate: "/img/fractions/Chocolate.png", 
+      pizza: "/img/fractions/Pizza.png", 
+      figure: "/img/fractions/Figurapintada.png", 
+      balloons: "/img/fractions/Globos.png", 
     };
     return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
@@ -191,7 +191,7 @@ const MathFractionLevel1 = () => {
                     <img 
                       src={getImageUrl(questions[currentQuestion].image!)}
                       alt={`Ilustración para la pregunta ${currentQuestion + 1}`}
-                      className="w-32 h-32 object-contain rounded-lg"
+                      className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-contain rounded-xl mx-auto"
                     />
                   </div>
                 )}

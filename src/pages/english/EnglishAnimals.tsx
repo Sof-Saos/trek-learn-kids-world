@@ -160,7 +160,7 @@ const animalsLessonContent: LessonContent = {
     ],
   },
   listening: {
-    videoId: 'pJm1lbpEAzE',
+    videoId: 'FgNroCthGgQ',
     questions: [
       {
         id: 1,

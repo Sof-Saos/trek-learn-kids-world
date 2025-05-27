@@ -10,7 +10,7 @@ const SpanishPath = () => {
   const spanishLessons: LessonNode[] = [
     {
       id: 'monday',
-      title: 'Lunes Literario',
+      title: 'Lunes: El dibujo mágico',
       description: 'Descubre historias y practica la lectura',
       status: 'available',
       to: '/espanol/lunes',
@@ -18,7 +18,7 @@ const SpanishPath = () => {
     },
     {
       id: 'tuesday',
-      title: 'Martes de Vocabulario',
+      title: 'Martes: El experimento de ciencias',
       description: 'Amplía tu vocabulario con palabras nuevas',
       status: 'available',
       to: '/espanol/martes',
@@ -26,7 +26,7 @@ const SpanishPath = () => {
     },
     {
       id: 'wednesday',
-      title: 'Miércoles de Gramática',
+      title: 'Miércoles: Mi amigo tecnológico',
       description: 'Aprende las reglas gramaticales',
       status: 'available',
       to: '/espanol/miercoles',
@@ -34,7 +34,7 @@ const SpanishPath = () => {
     },
     {
       id: 'thursday',
-      title: 'Jueves de Ortografía',
+      title: 'Jueves: El tesoro perdido',
       description: 'Mejora tu ortografía con ejercicios divertidos',
       status: 'available',
       to: '/espanol/jueves',
@@ -42,7 +42,7 @@ const SpanishPath = () => {
     },
     {
       id: 'friday',
-      title: 'Viernes de Expresión',
+      title: 'Viernes: La noche de camping',
       description: 'Practica cómo expresar tus ideas',
       status: 'available',
       to: '/espanol/viernes',

@@ -160,7 +160,7 @@ const emotionsLessonContent: LessonContent = {
     ],
   },
   listening: {
-    videoId: 'l4WNrvVjiTw',
+    videoId: '4XVVZ6_OKLE',
     questions: [
       {
         id: 1,
