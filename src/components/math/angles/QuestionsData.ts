@@ -12,7 +12,7 @@ export const angleQuestions: Question[] = [
   },
   {
     id: 2,
-    image_url: '/img/angles/Lápiz.png',
+    image_url: '/img/angles/Lapiz.png',
     question: "¿Qué ángulo ves en el extremo de este lápiz?",
     imageDescription: "Imagen de la punta de un lápiz que forma un ángulo agudo",
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso", "Ángulo llano"],
@@ -36,7 +36,7 @@ export const angleQuestions: Question[] = [
   },
   {
     id: 5,
-    image_url: '/img/angles/Semáforo.png',
+    image_url: '/img/angles/Semaforo.png',
     question: "¿Qué ángulo hay entre el poste y el semáforo?",
     imageDescription: "Imagen de un semáforo con un poste formando un ángulo recto",
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso", "Ángulo llano"],
@@ -60,7 +60,7 @@ export const angleQuestions: Question[] = [
   },
   {
     id: 8,
-    image_url: '/img/angles/Avión.png',
+    image_url: '/img/angles/Avion.png',
     question: "¿Qué ángulo forman las alas de este avión de papel?",
     imageDescription: "Imagen de un avión de papel con sus alas formando un ángulo agudo",
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso", "Ángulo llano"],
@@ -76,7 +76,7 @@ export const angleQuestions: Question[] = [
   },
   {
     id: 10,
-    image_url: '/img/angles/Sofá.png',
+    image_url: '/img/angles/Sofa.png',
     question: "¿Qué ángulo tiene el asiento de esta silla?",
     imageDescription: "Imagen de una esquina de un sofá formando un ángulo recto",
     options: ["Ángulo agudo", "Ángulo recto", "Ángulo obtuso", "Ángulo llano"],
