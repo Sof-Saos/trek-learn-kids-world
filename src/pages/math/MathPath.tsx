@@ -27,7 +27,7 @@ const MathPath = () => {
     },
     {
       id: 'angles-3',
-      title: 'Ángulos en contextos reales',
+      title: 'Problemas con ángulos',
       description: 'Resuelve problemas usando ángulos',
       status: 'available',
       to: '/matematicas/angulos/3',
@@ -51,7 +51,7 @@ const MathPath = () => {
     },
     {
       id: 'fractions-3',
-      title: 'Fracciones en problemas',
+      title: 'Problemas con fracciones',
       description: 'Aplica las fracciones para resolver problemas',
       status: 'available',
       to: '/matematicas/fracciones/3',
@@ -67,7 +67,7 @@ const MathPath = () => {
     },
     {
       id: 'mult-div-2',
-      title: 'Operaciones avanzadas',
+      title: 'Multiplicación y división 2',
       description: 'Multiplica y divide números más grandes',
       status: 'available',
       to: '/matematicas/mult-div/2',
@@ -75,7 +75,7 @@ const MathPath = () => {
     },
     {
       id: 'mult-div-3',
-      title: 'Problemas de multiplicación',
+      title: 'Multiplicación y división 3',
       description: 'Resuelve problemas usando multiplicación y división',
       status: 'available',
       to: '/matematicas/mult-div/3',
