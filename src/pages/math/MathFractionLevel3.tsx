@@ -114,11 +114,11 @@ const MathFractionLevel3 = () => {
   // Helper function to get the image URL for the current question
   const getImageUrl = (imageKey: string) => {
     const imageUrls = {
-      compare1: "/img/fractions/fracciónmayor.png", // Reemplaza con el enlace de tu imagen
-      compare2: "/img/fractions/Sandía.png", // Reemplaza con el enlace de tu imagen
-      equivalent1: "/img/fractions/fracciónequivalente.png", // Reemplaza con el enlace de tu imagen
-      equivalent2: "/img/fractions/azúcar.png", // Reemplaza con el enlace de tu imagen
-      equivalent3: "/img/fractions/fracciónmismacantidad.png", // Reemplaza con el enlace de tu imagen
+      compare1: "/img/fractions/fraccionmayor.png", // Reemplaza con el enlace de tu imagen
+      compare2: "/img/fractions/Sandia.png", // Reemplaza con el enlace de tu imagen
+      equivalent1: "/img/fractions/fraccionequivalente.png", // Reemplaza con el enlace de tu imagen
+      equivalent2: "/img/fractions/azucar.png", // Reemplaza con el enlace de tu imagen
+      equivalent3: "/img/fractions/fraccionmismacantidad.png", // Reemplaza con el enlace de tu imagen
     };
     return imageUrls[imageKey as keyof typeof imageUrls] || "";
   };
