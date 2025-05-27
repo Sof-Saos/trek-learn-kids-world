@@ -1,4 +1,3 @@
-
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Lock } from 'lucide-react';
@@ -30,36 +29,40 @@ const getThemeColors = (theme?: 'math' | 'english' | 'language') => {
         bgGradient: 'from-math to-support',
         pathColor: '#6ecff6',
         pathBgColor: '#d3f5ff',
-        nodeLevel1: 'bg-gradient-to-r from-support to-math text-white',
-        nodeLevel2: 'bg-gradient-to-r from-math to-support text-white',
-        nodeLevel3: 'bg-gradient-to-r from-contrast to-math text-white',
+        nodeLevel1: 'bg-gradient-to-r from-support to-math text-white hover:scale-110',
+        nodeLevel2: 'bg-gradient-to-r from-math to-support text-white hover:scale-110',
+        nodeLevel3: 'bg-gradient-to-r from-kid-purple to-math text-white hover:scale-110',
+        nodeDefault: 'bg-gradient-to-r from-kid-purple to-math text-white hover:scale-110',
       };
     case 'english':
       return {
         bgGradient: 'from-english to-soft-yellow',
         pathColor: '#ffc63b',
         pathBgColor: '#fff5d6',
-        nodeLevel1: 'bg-gradient-to-r from-soft-yellow to-english text-contrast',
-        nodeLevel2: 'bg-gradient-to-r from-english to-soft-yellow text-contrast',
-        nodeLevel3: 'bg-gradient-to-r from-contrast to-english text-white',
+        nodeLevel1: 'bg-gradient-to-r from-soft-yellow to-english text-contrast hover:scale-110',
+        nodeLevel2: 'bg-gradient-to-r from-english to-soft-yellow text-contrast hover:scale-110',
+        nodeLevel3: 'bg-gradient-to-r from-contrast to-english text-white hover:scale-110',
+        nodeDefault: 'bg-gradient-to-r from-kid-purple to-english text-white hover:scale-110',
       };
     case 'language':
       return {
         bgGradient: 'from-language to-soft-orange',
         pathColor: '#ff8e30',
         pathBgColor: '#ffece0',
-        nodeLevel1: 'bg-gradient-to-r from-soft-orange to-language text-white',
-        nodeLevel2: 'bg-gradient-to-r from-language to-soft-orange text-white',
-        nodeLevel3: 'bg-gradient-to-r from-contrast to-language text-white',
+        nodeLevel1: 'bg-gradient-to-r from-soft-orange to-language text-white hover:scale-110',
+        nodeLevel2: 'bg-gradient-to-r from-language to-soft-orange text-white hover:scale-110',
+        nodeLevel3: 'bg-gradient-to-r from-contrast to-language text-white hover:scale-110',
+        nodeDefault: 'bg-gradient-to-r from-kid-purple to-language text-white hover:scale-110',
       };
     default:
       return {
         bgGradient: 'from-kid-purple to-soft-purple',
         pathColor: '#9b87f5',
         pathBgColor: '#E5DEFF',
-        nodeLevel1: 'bg-green-100 text-green-800',
-        nodeLevel2: 'bg-yellow-100 text-yellow-800',
-        nodeLevel3: 'bg-red-100 text-red-800',
+        nodeLevel1: 'bg-gradient-to-r from-kid-purple to-soft-purple text-white hover:scale-110',
+        nodeLevel2: 'bg-gradient-to-r from-kid-purple to-soft-purple text-white hover:scale-110',
+        nodeLevel3: 'bg-gradient-to-r from-kid-purple to-soft-purple text-white hover:scale-110',
+        nodeDefault: 'bg-gradient-to-r from-kid-purple to-soft-purple text-white hover:scale-110',
       };
   }
 };
@@ -126,12 +129,12 @@ const PathView = ({
                 <Link 
                   to={node.to} 
                   className={cn(
-                    "path-node relative shadow-md",
-                    node.status === 'completed' ? 'bg-green-500' : '',
+                    "path-node relative shadow-md transition-transform",
+                    node.status === 'completed' ? 'bg-green-500 text-white hover:scale-110' : '',
                     node.level === 1 && themeColors.nodeLevel1,
                     node.level === 2 && themeColors.nodeLevel2,
                     node.level === 3 && themeColors.nodeLevel3,
-                    !node.level && `bg-gradient-to-r ${themeColors.bgGradient}`
+                    !node.level && themeColors.nodeDefault
                   )}
                 >
                   {node.status === 'completed' ? (
