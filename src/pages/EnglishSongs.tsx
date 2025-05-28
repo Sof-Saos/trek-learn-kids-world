@@ -83,7 +83,46 @@ const songs: Song[] = [
       { word: "cow", definition: "a large farm animal that gives milk", translation: "vaca" },
       { word: "fish", definition: "an animal that lives in water", translation: "pez" },
       { word: "sheep", definition: "a farm animal with wool", translation: "oveja" }
-    ]
+    ],
+
+    
+  },
+  {
+    id: 3,
+    title: "Animals All Around",
+    theme: "Animals",
+    lyrics: [
+      "Dogs go woof and cats go meow,",
+      "Birds fly high and cows say 'moo'!",
+      "Fish swim fast, sheep go 'baa',",
+      "Animals all around, near and far!",
+      "",
+      "Horses gallop, rabbits hop,",
+      "Frogs jump high, then they stop.",
+      "Snakes slither, lions roar,",
+      "So many animals to explore!"
+    ],
+    translation: [
+      "Los perros hacen 'guau' y los gatos 'miau',",
+      "¡Los pájaros vuelan alto y las vacas dicen 'muu'!",
+      "Los peces nadan rápido, las ovejas hacen 'bee',",
+      "¡Animales por todas partes, cerca y lejos!",
+      "",
+      "Los caballos galopan, los conejos saltan,",
+      "Las ranas saltan alto, luego se detienen.",
+      "Las serpientes se deslizan, los leones rugen,",
+      "¡Tantos animales para explorar!"
+    ],
+    glossary: [
+      { word: "dog", definition: "a domestic animal, often kept as a pet", translation: "perro" },
+      { word: "cat", definition: "a small furry animal with whiskers", translation: "gato" },
+      { word: "bird", definition: "an animal with feathers and wings", translation: "pájaro" },
+      { word: "cow", definition: "a large farm animal that gives milk", translation: "vaca" },
+      { word: "fish", definition: "an animal that lives in water", translation: "pez" },
+      { word: "sheep", definition: "a farm animal with wool", translation: "oveja" }
+    ],
+
+    
   }
 ];
 

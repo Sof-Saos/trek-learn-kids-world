@@ -16,7 +16,7 @@ const WorldCard = ({ title, icon, description, to, bgClass, character }: WorldCa
     <Link to={to} className="block w-full">
       <div className="relative flex flex-col items-center text-center">
         <button className={`world-button ${bgClass}`}>
-          <div className="text-4xl mb-2">{icon}</div>
+          <div className="text-xl mb-0">{icon}</div>
           <span className="text-lg">{title}</span>
         </button>
         

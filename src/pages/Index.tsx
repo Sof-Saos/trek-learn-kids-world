@@ -24,28 +24,64 @@ const Index = () => {
           <WorldCard 
             title="Matemáticas" 
             description="¡Aprende sobre números, formas y más!" 
-            icon={<Calculator className="w-10 h-10" />} 
+            icon={
+              <img
+                src='/img/assets/calculadora.png'
+                alt="Calculadora"
+                className="w-[70px] h-[70px] mx-auto mb-2"
+              />
+            } 
             bgClass="world-math" 
             to="/matematicas"
-            character={<Character icon={<Trophy size={24} />} color="bg-math" />}
+            character={
+              <img 
+                src='/img/assets/Planeta_mate.png'
+                alt= 'Planeta matemáticas'
+                className= "w-20 h-20 animate-float" 
+              />
+            }
           />
           
           <WorldCard 
             title="Español" 
             description="¡Aventuras con palabras y letras!" 
-            icon={<Book className="w-10 h-10" />} 
+            icon={
+              <img
+                src='/img/assets/libro.png'
+                alt="Libro"
+                className="w-[70px] h-[70px] mx-auto mb-2" 
+              />
+            } 
             bgClass="world-language" 
             to="/espanol"
-            character={<Character icon={<Heart size={24} />} color="bg-language" />}
+            character={
+              <img 
+                src='/img/assets/Planeta_lectura.png'
+                alt= 'Planeta matemáticas'
+                className= "w-20 h-20 animate-float" 
+              />
+            } 
           />
           
           <WorldCard 
             title="Inglés" 
             description="¡Palabras, canciones e historias!" 
-            icon={<Sparkles className="w-10 h-10" />} 
+            icon={
+              <img
+                src='/img/assets/abc.png'
+                alt="ABC"
+                className="w-[70px] h-[70px] mx-auto mb-2" 
+              />
+            } 
             bgClass="world-english" 
             to="/ingles"
-            character={<Character icon={<Star size={24} />} color="bg-english" />}
+            character={
+              <img 
+                src='/img/assets/Planeta_ingles.png'
+                alt= 'Planeta inglés'
+                className= "w-20 h-20 animate-float" 
+              />
+            }
           />
         </div>
 

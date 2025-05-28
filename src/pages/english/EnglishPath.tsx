@@ -56,14 +56,14 @@ const EnglishPath = () => {
       to: '/ingles/emociones',
       level: 3
     },
-    {
-      id: 'songs',
-      title: 'English Songs',
-      description: 'Learn English through fun songs',
-      status: 'available',
-      to: '/ingles/canciones',
-      level: 3
-    }
+    // {
+    //   id: 'songs',
+    //   title: 'English Songs',
+    //   description: 'Learn English through fun songs',
+    //   status: 'available',
+    //   to: '/ingles/canciones',
+    //   level: 3
+    // }
   ];
 
   return (
@@ -84,7 +84,12 @@ const EnglishPath = () => {
         </div>
         
         <div className="flex flex-col items-center gap-6 mb-8">
-          <Character size="lg" icon={<Star size={32} />} />
+           <img 
+              src='/img/assets/Planeta_ingles.png'
+              alt= 'Planeta Inglés'
+              className= "w-28 h-28 animate-float" 
+            />
+        
           <p className="text-xl text-center max-w-lg">
             ¡Bienvenido a tu aventura en inglés! Explora un nuevo idioma mientras te diviertes.
           </p>

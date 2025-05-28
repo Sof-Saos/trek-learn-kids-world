@@ -252,7 +252,7 @@ const MathMultDivLevel3 = () => {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button 
                   onClick={resetQuiz}
-                  className="kid-button bg-kid-red"
+                  // className="kid-button bg-kid-red"
                 >
                   Intentar de nuevo
                 </Button>
@@ -308,7 +308,7 @@ const MathMultDivLevel3 = () => {
                 {selectedAnswer !== null && (
                   <Button 
                     onClick={handleNextQuestion}
-                    className="kid-button bg-kid-red"
+                    // className="kid-button bg-kid-red"
                   >
                     {currentQuestion < questions.length - 1 ? "Siguiente pregunta" : "Ver resultados"}
                   </Button>

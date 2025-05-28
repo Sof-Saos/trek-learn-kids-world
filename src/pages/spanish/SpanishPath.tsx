@@ -68,7 +68,11 @@ const SpanishPath = () => {
         </div>
         
         <div className="flex flex-col items-center gap-6 mb-8">
-          <Character size="lg" icon={<Heart size={32} />} />
+          <img 
+              src='/img/assets/Planeta_lectura.png'
+              alt= 'Planeta libros'
+              className= "w-28 h-28 animate-float" 
+          />
           <p className="text-xl text-center max-w-lg">
             ¡Bienvenido al camino mágico del lenguaje! Aquí aprenderás a leer, escribir y expresarte mejor.
           </p>

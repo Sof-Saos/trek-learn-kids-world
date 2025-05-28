@@ -101,7 +101,11 @@ const MathPath = () => {
         </div>
         
         <div className="flex flex-col items-center gap-6 mb-8">
-          <Character size="lg" icon={<Trophy size={32} />} color="bg-math" />
+          <img 
+              src='/img/assets/Planeta_mate.png'
+              alt= 'Planeta Matemáticas'
+              className= "w-28 h-28 animate-float" 
+          />
           <p className="text-xl text-center max-w-lg">
             ¡Bienvenido al mundo de los números! Aquí aprenderás a contar, calcular y resolver problemas matemáticos.
           </p>
